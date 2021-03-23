@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Reposirtorios\\BlueBank\\BlueBlan_Backend\\BlueBlan_Backend\\BlueBlan_API.csproj",
-      "projectName": "BlueBlan_API",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\Reposirtorios\\BlueBank\\BlueBlan_Backend\\BlueBlan_Backend\\BlueBlan_API.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Reposirtorios\\BlueBank\\BlueBlan_Backend\\BlueBlan.Dominio\\BlueBlan.Dominio.csproj",
+      "projectName": "BlueBlan.Dominio",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Reposirtorios\\BlueBank\\BlueBlan_Backend\\BlueBlan.Dominio\\BlueBlan.Dominio.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\Reposirtorios\\BlueBank\\BlueBlan_Backend\\BlueBlan_Backend\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\Reposirtorios\\BlueBank\\BlueBlan_Backend\\BlueBlan.Dominio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -58,9 +58,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

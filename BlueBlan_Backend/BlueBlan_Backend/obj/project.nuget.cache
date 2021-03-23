@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uBJl/j67q9lao8PanFQ6Zj9KhXIuQXcSA4tlPgsg3gZBIycEO5p+jnm5ds+RJ843qPyd60zEqfr49bDw9/+82g==",
+  "dgSpecHash": "T24kalobz/zqXg72Is7OZIcZ40jYsW9QN0SV87fHJupymBoOKsr8kKgCUg4YY5qnP8lC8KlNWeVNaQfbWOH83w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Reposirtorios\\BlueBank\\BlueBlan_Backend\\BlueBlan_Backend\\BlueBlan_Backend.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Reposirtorios\\BlueBank\\BlueBlan_Backend\\BlueBlan_Backend\\BlueBlan_API.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
