@@ -15,6 +15,7 @@ namespace BlueBlan.Dominio.Entity
         public string Number { get; set; }
         public decimal Value { get; set; }
         public ACOUNT_TYPE Type { get; set; }
+        public int ClientId { get; set; }
         public Client Client { get; set; }
     }
 }
