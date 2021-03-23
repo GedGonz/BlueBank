@@ -67,3 +67,7 @@ C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backen
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.dll
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.pdb
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.Aplication.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.Aplication.pdb
