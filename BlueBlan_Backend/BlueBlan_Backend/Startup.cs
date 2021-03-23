@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlueBan.Aplication.Mapper;
+using BlueBan.IoC;
 using BlueBlan.Infraestructura.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +34,21 @@ namespace BlueBlan_Backend
 
             services.AddDbContext<BlueBankContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("BluBankDB")));
+
+            //Configure AutoMapper
+            services.AddAutoMapper(typeof(MappingProfile));
+
+            //Configure IOC
+            ContainerIoC.Services(services);
+            //enable requetes cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                      builder => builder.WithOrigins("*")
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

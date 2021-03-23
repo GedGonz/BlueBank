@@ -19,6 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlueBan.Aplication\BlueBan.Aplication.csproj" />
+    <ProjectReference Include="..\BlueBan.IoC\BlueBan.IoC.csproj" />
     <ProjectReference Include="..\BlueBlan.Infraestructura\BlueBlan.Infraestructura.csproj" />
   </ItemGroup>
 

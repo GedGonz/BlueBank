@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BlueBlan.Infraestructura.Repository
 {
-    public class ClieneRepository : IClientRepository
+    public class ClientRepository : IClientRepository
     {
         private BlueBankContext _blueBankContext;
 
-        public ClieneRepository(BlueBankContext _blueBankContext)
+        public ClientRepository(BlueBankContext _blueBankContext)
         {
             this._blueBankContext = _blueBankContext;
         }
