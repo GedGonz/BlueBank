@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlueBan.Aplication.Contracts
 {
-    public interface IAccountAplicationSercice
+    public interface IAccountAplicationService
     {
         public Task<List<Accountdto>> getAllAccounts();
         public Task<Accountdto> getAccountById(int id);
