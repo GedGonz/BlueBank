@@ -11,8 +11,10 @@ namespace BlueBlan.Dominio.Contracts
     {
         public Task<IQueryable<Client>> getAllClients();
         public Task<Client> getClientById(int id);
-        public Task saveClient(Client client);
-        public Task updateClient(Client client);
-        public Task deleteClient(int id);
+        public Task<bool> saveClient(Client client);
+        public Task<bool> updateClient(Client client);
+        public Task<bool> deleteClient(Client client);
+        public Task<bool> existsClient(int id);
+        public Task<bool> save();
     }
 }

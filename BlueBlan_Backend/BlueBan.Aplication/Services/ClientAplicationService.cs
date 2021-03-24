@@ -20,9 +20,10 @@ namespace BlueBan.Aplication.Services
             this._clientDomineService = _clientDomineService;
             this._mapper = _mapper;
         }
-        public async Task deleteClient(int id)
+        public async Task<bool> deleteClient(Clientdto client)
         {
-            await _clientDomineService.deleteClient(id);
+             var _client = _mapper.Map<Client>(client);
+            return await _clientDomineService.deleteClient(_client);
         }
 
         public async Task<List<Clientdto>> getAllClients()
@@ -43,18 +44,24 @@ namespace BlueBan.Aplication.Services
             return clientdto;
         }
 
-        public async Task saveClient(Clientdto client)
+        public async Task<bool> saveClient(Clientdto client)
         {
             var _client = _mapper.Map<Client>(client);
 
-            await _clientDomineService.saveClient(_client);
+            return await _clientDomineService.saveClient(_client);
         }
 
-        public async Task updateClient(Clientdto client)
+        public async Task<bool> updateClient(Clientdto client)
         {
             var _client = _mapper.Map<Client>(client);
 
-            await _clientDomineService.updateClient(_client);
+            return await _clientDomineService.updateClient(_client);
         }
+
+        public async Task<bool> existsClient(int id)
+        {
+            return await _clientDomineService.existsClient(id);
+        }
+
     }
 }

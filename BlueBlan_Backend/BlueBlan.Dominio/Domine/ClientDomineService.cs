@@ -2,6 +2,7 @@
 using BlueBlan.Dominio.Entity;
 using BlueBlan.Dominio.Services;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,31 +16,37 @@ namespace BlueBlan.Dominio.Domine
         {
             this._clientRepository = _clientRepository;
         }
-        public async Task deleteClient(int id)
+        public async Task<bool> deleteClient(Client client)
         {
-            await _clientRepository.deleteClient(id);
+           return await _clientRepository.deleteClient(client);
         }
 
         public async Task<List<Client>> getAllClients()
         {
             var allClients=await _clientRepository.getAllClients();
 
-            return (List<Client>)allClients;
+            return allClients.ToList();
         }
 
-        public Task<Client> getClientById(int id)
+        public async Task<Client> getClientById(int id)
         {
-            throw new NotImplementedException();
+            return await _clientRepository.getClientById(id);
         }
 
-        public async Task saveClient(Client client)
+        public async Task<bool> saveClient(Client client)
         {
-            await _clientRepository.saveClient(client);
+            return await _clientRepository.saveClient(client);
         }
 
-        public async Task updateClient(Client client)
+        public async Task<bool> updateClient(Client client)
         {
-            await _clientRepository.updateClient(client);
+            return await _clientRepository.updateClient(client);
         }
+
+        public async Task<bool> existsClient(int id)
+        {
+            return await _clientRepository.existsClient(id);
+        }
+
     }
 }

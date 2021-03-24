@@ -3,3 +3,14 @@ C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\bin
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\obj\Debug\netcoreapp3.1\BlueBan.IoC.csprojAssemblyReference.cache
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\obj\Debug\netcoreapp3.1\BlueBan.IoC.AssemblyInfoInputs.cache
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\obj\Debug\netcoreapp3.1\BlueBan.IoC.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\bin\Debug\netcoreapp3.1\BlueBan.IoC.pdb
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\bin\Debug\netcoreapp3.1\BlueBan.Aplication.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\bin\Debug\netcoreapp3.1\BlueBlan.Dominio.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\bin\Debug\netcoreapp3.1\BlueBlan.Infraestructura.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\bin\Debug\netcoreapp3.1\BlueBan.Aplication.pdb
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\bin\Debug\netcoreapp3.1\BlueBlan.Infraestructura.pdb
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\bin\Debug\netcoreapp3.1\BlueBlan.Dominio.pdb
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\obj\Debug\netcoreapp3.1\BlueBan.IoC.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\obj\Debug\netcoreapp3.1\BlueBan.IoC.csproj.CopyComplete
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\obj\Debug\netcoreapp3.1\BlueBan.IoC.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBan.IoC\obj\Debug\netcoreapp3.1\BlueBan.IoC.pdb

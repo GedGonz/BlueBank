@@ -17,14 +17,12 @@ namespace BlueBlan.Infraestructura.Repository
         {
             this._blueBankContext = _blueBankContext;
         }
-        public async Task deleteAccount(int id)
+        public async Task<bool> deleteAccount(Account account)
         {
-            var account = await getAccountById(id);
-            if (account!=null) 
-            {
-                _blueBankContext.Remove(account);
-                await _blueBankContext.SaveChangesAsync();
-            }
+            var _account = await getAccountById(account.AccountId);
+            _blueBankContext.Remove(_account);
+
+            return await save();
         }
 
         public async Task<Account> getAccountById(int id)
@@ -42,25 +40,60 @@ namespace BlueBlan.Infraestructura.Repository
             return ListAllAccount;
         }
 
-        public async Task saveAccount(Account account)
+
+
+        public async Task<bool> saveAccount(Account account)
         {
             await _blueBankContext.Accounts.AddAsync(account);
-            await _blueBankContext.SaveChangesAsync();
+
+            return await save();
+
         }
 
-        public async Task updateAccount(Account account)
+        public async Task<bool> updateAccount(Account account)
         {
-            var _account = await getAccountById(account.AccountId);
-            if (_account != null)
-            {
-                _account.Number = account.Number;
-                _account.Value = account.Value;
-                _account.Type = account.Type;
-                _account.ClientId = account.ClientId;
 
-                _blueBankContext.Remove(_account);
-                await _blueBankContext.SaveChangesAsync();
+              _blueBankContext.Update(account);
+
+              return await save();
+        }
+
+        public async Task<bool> save()
+        {
+            var save = 0;
+            var retorno = false;
+            try
+            {
+                save = await _blueBankContext.SaveChangesAsync();
+                retorno= save >= 0;
+
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return retorno;
+        }
+
+        public async Task<bool> existsAccount(string AccountNumbre)
+        {
+            var exists = await Task.Factory.StartNew(() =>
+            {
+                return _blueBankContext.Accounts.Any(x => x.Number == AccountNumbre);
+            });
+
+            return exists;
+        }
+
+        public async Task<Account> getAccountByAccountNumber(string AccountNumbre)
+        {
+            var account = await Task.Factory.StartNew(() =>
+            {
+                return _blueBankContext.Accounts.FirstOrDefault(x => x.Number == AccountNumbre);
+            });
+            return account;
         }
     }
 }

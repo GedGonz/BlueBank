@@ -25,6 +25,7 @@
       "BlueBlan_API/1.0.0": {
         "dependencies": {
           "BlueBan.Aplication": "1.0.0",
+          "BlueBan.IoC": "1.0.0",
           "BlueBlan.Infraestructura": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.4",
           "Microsoft.EntityFrameworkCore.Design": "5.0.4",
@@ -1772,6 +1773,19 @@
         },
         "compile": {
           "BlueBan.Aplication.dll": {}
+        }
+      },
+      "BlueBan.IoC/1.0.0": {
+        "dependencies": {
+          "BlueBan.Aplication": "1.0.0",
+          "BlueBlan.Infraestructura": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.4"
+        },
+        "runtime": {
+          "BlueBan.IoC.dll": {}
+        },
+        "compile": {
+          "BlueBan.IoC.dll": {}
         }
       },
       "BlueBlan.Dominio/1.0.0": {
@@ -4357,6 +4371,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "BlueBan.Aplication/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BlueBan.IoC/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

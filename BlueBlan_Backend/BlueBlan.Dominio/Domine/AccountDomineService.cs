@@ -3,6 +3,7 @@ using BlueBlan.Dominio.Entity;
 using BlueBlan.Dominio.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,31 +16,38 @@ namespace BlueBlan.Dominio.Domine
         {
             this._accountRepository = _accountRepository;
         }
-        public async Task deleteAccount(int id)
+        public async Task<bool> deleteAccount(Account account)
         {
-            await _accountRepository.deleteAccount(id);
+            return await _accountRepository.deleteAccount(account);
         }
 
-        public async Task<Account> getAccountById(int id)
+        public async Task<Account> getAccountByAccountNumber(string AccountNumbre)
         {
-            return await _accountRepository.getAccountById(id);
+            return await _accountRepository.getAccountByAccountNumber(AccountNumbre);
         }
 
         public async Task<List<Account>> getAllAccounts()
         {
             var ListAll= await _accountRepository.getAllAccounts();
 
-            return (List<Account>)ListAll;
+            return ListAll.ToList();
         }
 
-        public async Task saveAccount(Account account)
+        public async Task<bool> saveAccount(Account account)
         {
-            await _accountRepository.saveAccount(account);
+            return await _accountRepository.saveAccount(account);
         }
 
-        public async Task updateAccount(Account account)
+        public async Task<bool> updateAccount(Account account)
         {
-            await _accountRepository.updateAccount(account);
+            return await _accountRepository.updateAccount(account);
         }
+
+        public async Task<bool> existsAccount(string AccountNumbre)
+        {
+            return await _accountRepository.existsAccount(AccountNumbre);
+        }
+
+
     }
 }

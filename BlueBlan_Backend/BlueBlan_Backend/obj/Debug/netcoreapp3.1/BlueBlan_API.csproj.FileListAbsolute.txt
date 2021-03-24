@@ -71,3 +71,5 @@ C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backen
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.Aplication.dll
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.Aplication.pdb
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.IoC.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.IoC.pdb

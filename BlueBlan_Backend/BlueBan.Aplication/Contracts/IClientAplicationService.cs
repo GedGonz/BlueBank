@@ -10,8 +10,9 @@ namespace BlueBan.Aplication.Contracts
     {
         public Task<List<Clientdto>> getAllClients();
         public Task<Clientdto> getClientById(int id);
-        public Task saveClient(Clientdto client);
-        public Task updateClient(Clientdto client);
-        public Task deleteClient(int id);
+        public Task<bool> saveClient(Clientdto client);
+        public Task<bool> updateClient(Clientdto client);
+        public Task<bool> deleteClient(Clientdto client);
+        public Task<bool> existsClient(int id);
     }
 }

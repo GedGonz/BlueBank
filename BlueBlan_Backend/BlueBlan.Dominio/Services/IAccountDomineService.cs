@@ -9,9 +9,10 @@ namespace BlueBlan.Dominio.Services
     public interface IAccountDomineService
     {
         public Task<List<Account>> getAllAccounts();
-        public Task<Account> getAccountById(int id);
-        public Task saveAccount(Account account);
-        public Task updateAccount(Account account);
-        public Task deleteAccount(int id);
+        public Task<Account> getAccountByAccountNumber(string AccountNumbre);
+        public Task<bool> saveAccount(Account account);
+        public Task<bool> updateAccount(Account account);
+        public Task<bool> deleteAccount(Account account);
+        public Task<bool> existsAccount(string AccountNumbre);
     }
 }

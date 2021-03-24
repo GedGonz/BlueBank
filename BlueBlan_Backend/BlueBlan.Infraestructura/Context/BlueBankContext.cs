@@ -36,7 +36,7 @@ namespace BlueBlan.Infraestructura.Context
 
                 entity.Property(e => e.AccountId).HasColumnName("ID");
 
-                entity.Property(e => e.Value).HasColumnType("DECIMAL(5,2)");
+                entity.Property(e => e.Value).HasColumnType("DECIMAL(9,2)");
                 entity.Property(e => e.Number).HasColumnType("VARCHAR(15)");
 
             });

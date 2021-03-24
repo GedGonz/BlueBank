@@ -20,21 +20,23 @@ namespace BlueBan.Aplication.Services
             this._accountDomineService = _accountDomineService;
             this._mapper = _mapper;
         }
-        public async Task deleteAccount(int id)
+        public async Task<bool> deleteAccount(Accountdto account)
         {
-            await _accountDomineService.deleteAccount(id);
+            var _account = _mapper.Map<Account>(account);
+
+            return await _accountDomineService.deleteAccount(_account);
         }
 
-        public async Task<Accountdto> getAccountById(int id)
+        public async Task<Accountdto> getAccountByAccountNumber(string AccountNumbre)
         {
-            var account= await _accountDomineService.getAccountById(id);
+            var account= await _accountDomineService.getAccountByAccountNumber(AccountNumbre);
 
             var accountdto = _mapper.Map<Accountdto>(account);
 
             return accountdto;
         }
 
-        public async  Task<List<Accountdto>> getAllAccounts()
+        public async Task<List<Accountdto>> getAllAccounts()
         {
             var accounts = await _accountDomineService.getAllAccounts();
 
@@ -43,18 +45,24 @@ namespace BlueBan.Aplication.Services
             return accountsdto;
         }
 
-        public async Task saveAccount(Accountdto account)
+        public async Task<bool> saveAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
 
-            await _accountDomineService.saveAccount(_account);
+            return await _accountDomineService.saveAccount(_account);
         }
 
-        public async Task updateAccount(Accountdto account)
+        public async Task<bool> updateAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
 
-            await _accountDomineService.updateAccount(_account);
+            return await _accountDomineService.updateAccount(_account);
         }
+
+        public async Task<bool> existsAccount(string AccountNumbre)
+        {
+            return await _accountDomineService.existsAccount(AccountNumbre);
+        }
+
     }
 }
