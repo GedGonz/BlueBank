@@ -36,7 +36,7 @@ namespace BlueBlan.Infraestructura.Repository
             return ListAllClient;
         }
 
-        public async Task<Client> getClientById(int id)
+        public async Task<Client> getClientById(Guid id)
         {
             return await _blueBankContext.Clients.FindAsync(id);
         }
@@ -75,7 +75,7 @@ namespace BlueBlan.Infraestructura.Repository
             return retorno;
         }
 
-        public async Task<bool> existsClient(int id)
+        public async Task<bool> existsClient(Guid id)
         {
             var exists = await Task.Factory.StartNew(() =>
             {

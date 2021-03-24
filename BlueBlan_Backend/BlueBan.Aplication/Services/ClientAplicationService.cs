@@ -35,7 +35,7 @@ namespace BlueBan.Aplication.Services
             return clientsdto;
         }
 
-        public async Task<Clientdto> getClientById(int id)
+        public async Task<Clientdto> getClientById(Guid id)
         {
             var client = await _clientDomineService.getClientById(id);
 
@@ -58,7 +58,7 @@ namespace BlueBan.Aplication.Services
             return await _clientDomineService.updateClient(_client);
         }
 
-        public async Task<bool> existsClient(int id)
+        public async Task<bool> existsClient(Guid id)
         {
             return await _clientDomineService.existsClient(id);
         }

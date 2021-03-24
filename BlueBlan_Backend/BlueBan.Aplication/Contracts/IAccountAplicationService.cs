@@ -14,5 +14,7 @@ namespace BlueBan.Aplication.Contracts
         public Task<bool> updateAccount(Accountdto account);
         public Task<bool> deleteAccount(Accountdto account);
         public Task<bool> existsAccount(string AccountNumbre);
+        public Task<List<AccountMovedto>> getAccountMoveByAccountNumber(Guid Id, string AccountNumbre);
+        public Task<bool> creatMoveAccount(string AccountNumber, AccountMovedto accountMove);
     }
 }

@@ -16,6 +16,7 @@ namespace BlueBlan.Infraestructura.Context
 
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<AccountMove> AccountMoves { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,8 +37,10 @@ namespace BlueBlan.Infraestructura.Context
 
                 entity.Property(e => e.AccountId).HasColumnName("ID");
 
-                entity.Property(e => e.Value).HasColumnType("DECIMAL(9,2)");
+                entity.Property(e => e.ValueInit).HasColumnType("DECIMAL(9,2)");
+                entity.Property(e => e.Valuecurrent).HasColumnType("DECIMAL(9,2)");
                 entity.Property(e => e.Number).HasColumnType("VARCHAR(15)");
+                entity.Property(e => e.State).HasDefaultValueSql("(1)");
 
             });
 
@@ -51,6 +54,20 @@ namespace BlueBlan.Infraestructura.Context
 
                 entity.Property(e => e.Name).HasColumnType("VARCHAR(30)");
                 entity.Property(e => e.LastName).HasColumnType("VARCHAR(30)");
+
+            });
+
+            modelBuilder.Entity<AccountMove>(entity =>
+            {
+
+                entity.Property(e => e.AccountMoveId).ValueGeneratedOnAdd();
+                entity.HasKey(e => e.AccountMoveId);
+
+                entity.Property(e => e.AccountMoveId).HasColumnName("ID");
+
+                entity.Property(e => e.DateMove).HasColumnType("DateTime");
+
+                entity.Property(e => e.DateMove).HasDefaultValueSql("(getdate())");
 
             });
         }

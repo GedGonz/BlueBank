@@ -25,7 +25,7 @@ namespace BlueBlan.Infraestructura.Repository
             return await save();
         }
 
-        public async Task<Account> getAccountById(int id)
+        public async Task<Account> getAccountById(Guid id)
         {
             return await _blueBankContext.Accounts.FindAsync(id);
         }

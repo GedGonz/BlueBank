@@ -28,7 +28,7 @@ namespace BlueBlan.Dominio.Domine
             return allClients.ToList();
         }
 
-        public async Task<Client> getClientById(int id)
+        public async Task<Client> getClientById(Guid id)
         {
             return await _clientRepository.getClientById(id);
         }
@@ -43,7 +43,7 @@ namespace BlueBlan.Dominio.Domine
             return await _clientRepository.updateClient(client);
         }
 
-        public async Task<bool> existsClient(int id)
+        public async Task<bool> existsClient(Guid id)
         {
             return await _clientRepository.existsClient(id);
         }

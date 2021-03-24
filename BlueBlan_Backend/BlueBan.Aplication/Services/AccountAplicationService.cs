@@ -68,5 +68,20 @@ namespace BlueBan.Aplication.Services
             return await _accountDomineService.existsAccount(AccountNumbre);
         }
 
+        public async Task<List<AccountMovedto>> getAccountMoveByAccountNumber(Guid Id, string AccountNumber)
+        {
+            var accountMove = await _accountDomineService.getAccountMoveByAccountNumber(Id,AccountNumber);
+
+            var accountMovedto = _mapper.Map<List<AccountMovedto>>(accountMove);
+            //_logger.LogInformation($"Find Account Move {accountMove.Account.Number}");
+            return accountMovedto;
+        }
+
+        public async Task<bool> creatMoveAccount(string AccountNumber, AccountMovedto accountMove)
+        {
+            var _accountMove = _mapper.Map<AccountMove>(accountMove);
+            //_logger.LogInformation($"Save Account {_accountMove.Account.Number}");
+            return await _accountDomineService.creatMoveAccount(AccountNumber, _accountMove);
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace BlueBan.IoC
 
             service.AddScoped<IAccountRepository, AccountRepository>();
             service.AddScoped<IClientRepository, ClientRepository>();
+            service.AddScoped<IAccountMoveRepository, AccountMoveRepository>();
 
             service.AddScoped<IAccountDomineService, AccountDomineService>();
             service.AddScoped<IClientDomineService, ClientDomineService>();

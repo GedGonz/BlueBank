@@ -10,7 +10,7 @@ namespace BlueBlan.Dominio.Contracts
     public interface IAccountRepository
     {
         public Task<IQueryable<Account>> getAllAccounts();
-        public Task<Account> getAccountById(int id);
+        public Task<Account> getAccountById(Guid id);
         public Task<Account> getAccountByAccountNumber(string AccountNumbre);
         public Task<bool> saveAccount(Account account);
         public Task<bool> updateAccount(Account account);

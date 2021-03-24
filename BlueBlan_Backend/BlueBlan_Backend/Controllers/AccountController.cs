@@ -68,7 +68,7 @@ namespace BlueBlan_API.Controllers
 
         // PATCH api/<AccountController>/5
         [HttpPatch("{id}")]
-        public async Task<IActionResult> Patch(int id, [FromBody] Accountdto accountdto)
+        public async Task<IActionResult> Patch(Guid id, [FromBody] Accountdto accountdto)
         {
             if (accountdto == null || id != accountdto.AccountId)
             {
@@ -109,6 +109,42 @@ namespace BlueBlan_API.Controllers
             }
 
             return NoContent();
+        }
+
+        //MOVE ACCOUNT
+
+        [HttpGet("Move/{Id}/{AccountNumber}")]
+        public async Task<IActionResult> Move(Guid Id,string AccountNumber)
+        {
+            var accountMove = await _accountAplicationService.getAccountMoveByAccountNumber(Id,AccountNumber);
+            if (accountMove == null || accountMove.Count == 0)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+            }
+            return Ok(accountMove);
+        }
+
+        // POST api/<AccountController>
+        [HttpPost("Move/{AccountNumber}")]
+        public async Task<IActionResult> Move(string AccountNumber,[FromBody] AccountMovedto accountMovedto)
+        {
+
+            if (accountMovedto == null)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var issave = await _accountAplicationService.creatMoveAccount(AccountNumber,accountMovedto);
+
+            if (!issave)
+            {
+                ModelState.AddModelError("", $"Something went wrong creating the record {accountMovedto.Value}");
+
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok(accountMovedto);
         }
     }
 }

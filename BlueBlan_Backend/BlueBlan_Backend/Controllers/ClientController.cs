@@ -32,7 +32,7 @@ namespace BlueBlan_API.Controllers
 
         // GET api/<AccountController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(Guid id)
         {
             var client = await _clientAplicationService.getClientById(id);
             if (client == null)
@@ -67,7 +67,7 @@ namespace BlueBlan_API.Controllers
 
         // PATCH api/<AccountController>/5
         [HttpPatch("{id}")]
-        public async Task<IActionResult> Patch(int id, [FromBody] Clientdto clientdto)
+        public async Task<IActionResult> Patch(Guid id, [FromBody] Clientdto clientdto)
         {
             if (clientdto == null || id != clientdto.ClientId)
             {
@@ -88,7 +88,7 @@ namespace BlueBlan_API.Controllers
 
         // DELETE api/<AccountController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var isexist = await _clientAplicationService.existsClient(id);
             if (!isexist)

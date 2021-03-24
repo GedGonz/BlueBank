@@ -12,9 +12,11 @@ namespace BlueBlan.Dominio.Domine
     public class AccountDomineService : IAccountDomineService
     {
         private readonly IAccountRepository _accountRepository;
-        public AccountDomineService(IAccountRepository _accountRepository)
+        private readonly IAccountMoveRepository _accountMoveRepository;
+        public AccountDomineService(IAccountRepository _accountRepository, IAccountMoveRepository _accountMoveRepository)
         {
             this._accountRepository = _accountRepository;
+            this._accountMoveRepository = _accountMoveRepository;
         }
         public async Task<bool> deleteAccount(Account account)
         {
@@ -35,11 +37,17 @@ namespace BlueBlan.Dominio.Domine
 
         public async Task<bool> saveAccount(Account account)
         {
+            account.Valuecurrent = account.ValueInit;
+
             return await _accountRepository.saveAccount(account);
         }
 
         public async Task<bool> updateAccount(Account account)
         {
+            var _account = await _accountRepository.getAccountById(account.AccountId);
+
+            account.ValueInit = _account.ValueInit;
+
             return await _accountRepository.updateAccount(account);
         }
 
@@ -48,6 +56,35 @@ namespace BlueBlan.Dominio.Domine
             return await _accountRepository.existsAccount(AccountNumbre);
         }
 
+        public async Task<List<AccountMove>> getAccountMoveByAccountNumber(Guid Id, string AccountNumber)
+        {
+            var listaAccountMove= await _accountMoveRepository.getAccountByAccountMoveNumber(Id,AccountNumber);
 
+            return listaAccountMove.ToList();
+        }
+
+        public async Task<bool> creatMoveAccount(string AccountNumber,AccountMove accountMove)
+        {
+            var account = await _accountRepository.getAccountByAccountNumber(AccountNumber);
+
+            //Verify the type move
+
+            if (accountMove.TypeMove == ACOUNTMOVE_TYPE.CONSIGN)
+            {
+                account.Valuecurrent = account.Valuecurrent + accountMove.Value;
+            }
+            else if (accountMove.TypeMove == ACOUNTMOVE_TYPE.WITHDRAW)
+            {
+                account.Valuecurrent = account.Valuecurrent - accountMove.Value;
+            }
+
+            accountMove.AccountId = account.AccountId;
+
+            await _accountRepository.updateAccount(account);
+
+            return await _accountMoveRepository.saveAccountMove(accountMove);
+        }
+
+   
     }
 }

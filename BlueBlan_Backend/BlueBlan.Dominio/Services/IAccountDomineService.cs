@@ -14,5 +14,9 @@ namespace BlueBlan.Dominio.Services
         public Task<bool> updateAccount(Account account);
         public Task<bool> deleteAccount(Account account);
         public Task<bool> existsAccount(string AccountNumbre);
+        public Task<List<AccountMove>> getAccountMoveByAccountNumber(Guid Id,string AccountNumbre);
+        public Task<bool> creatMoveAccount(string AccountNumber, AccountMove accountMove);
+
+
     }
 }

@@ -9,13 +9,21 @@ namespace BlueBlan.Dominio.Entity
         ORDINARY,
         OTHER
     }
+    public enum STATE
+    {
+        ACTIVE,
+        DESACTIVE
+    }
     public class Account
     {
-        public int AccountId { get; set; }
+        public Guid AccountId { get; set; }
         public string Number { get; set; }
-        public decimal Value { get; set; }
+        public decimal ValueInit { get; set; }
+        public decimal Valuecurrent { get; set; }
         public ACOUNT_TYPE Type { get; set; }
-        public int ClientId { get; set; }
+        public STATE State { get; set; }
+        public Guid ClientId { get; set; }
         public virtual Client Client { get; set; }
+        public virtual List<AccountMove> AccountMoves { get; set; }
     }
 }
