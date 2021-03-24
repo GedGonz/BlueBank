@@ -9,6 +9,6 @@ namespace BlueBlan.Dominio.Entity
         public int ClientId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public List<Account> Accounts { get; set; }
+        public virtual List<Account> Accounts { get; set; }
     }
 }

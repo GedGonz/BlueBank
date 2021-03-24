@@ -21,6 +21,7 @@ namespace BlueBan.Aplication.Entitydto
         [Required(ErrorMessage = "Type is required")]
         public ACOUNT_TYPE Type { get; set; }
         public int ClientId { get; set; }
+        public Clientdto Client { get; set; }
     }
 }
 
