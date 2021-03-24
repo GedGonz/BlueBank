@@ -23,9 +23,9 @@ namespace BlueBlan.Dominio.Domine
             return await _accountRepository.deleteAccount(account);
         }
 
-        public async Task<Account> getAccountByAccountNumber(string AccountNumbre)
+        public async Task<Account> getAccountByAccountNumber(Guid Clientid,string AccountNumbre)
         {
-            return await _accountRepository.getAccountByAccountNumber(AccountNumbre);
+            return await _accountRepository.getAccountByAccountNumber(Clientid,AccountNumbre);
         }
 
         public async Task<List<Account>> getAllAccounts()
@@ -87,6 +87,5 @@ namespace BlueBlan.Dominio.Domine
             return await _accountMoveRepository.saveAccountMove(accountMove);
         }
 
-   
     }
 }

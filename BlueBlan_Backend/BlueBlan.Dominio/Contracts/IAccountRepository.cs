@@ -11,6 +11,7 @@ namespace BlueBlan.Dominio.Contracts
     {
         public Task<IQueryable<Account>> getAllAccounts();
         public Task<Account> getAccountById(Guid id);
+        public Task<Account> getAccountByAccountNumber(Guid Clientid, string AccountNumbre);
         public Task<Account> getAccountByAccountNumber(string AccountNumbre);
         public Task<bool> saveAccount(Account account);
         public Task<bool> updateAccount(Account account);

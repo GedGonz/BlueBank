@@ -32,10 +32,10 @@ namespace BlueBlan_API.Controllers
         }
 
         // GET api/<AccountController>/5
-        [HttpGet("{AccountNumber}")]
-        public async Task<IActionResult> Get(string AccountNumber)
+        [HttpGet("{Id}/{AccountNumber}")]
+        public async Task<IActionResult> Get(Guid Id,string AccountNumber)
         {
-            var account = await _accountAplicationService.getAccountByAccountNumber(AccountNumber);
+            var account = await _accountAplicationService.getAccountByAccountNumber(Id,AccountNumber);
             if (account == null)
             {
                 return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
@@ -88,8 +88,8 @@ namespace BlueBlan_API.Controllers
         }
 
         // DELETE api/<AccountController>/5
-        [HttpDelete("{AccountNumber}")]
-        public async Task<IActionResult> Delete(string AccountNumber)
+        [HttpDelete("{Id}/{AccountNumber}")]
+        public async Task<IActionResult> Delete(Guid Id,string AccountNumber)
         {
             var isexist = await _accountAplicationService.existsAccount(AccountNumber);
             if (!isexist)
@@ -97,7 +97,7 @@ namespace BlueBlan_API.Controllers
                 return NotFound();
             }
 
-            var account = await _accountAplicationService.getAccountByAccountNumber(AccountNumber);
+            var account = await _accountAplicationService.getAccountByAccountNumber(Id,AccountNumber);
 
             var isdelete = await _accountAplicationService.deleteAccount(account);
 

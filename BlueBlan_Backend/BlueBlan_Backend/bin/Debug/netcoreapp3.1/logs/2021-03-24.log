@@ -314,3 +314,8 @@ Error Number:547,State:0,Class:16
 2021-03-24 11:58:48.4276 ERROR An unhandled exception has occurred while executing the request.
 2021-03-24 12:01:58.9083 ERROR An unhandled exception has occurred while executing the request.
 2021-03-24 12:02:09.1978 WARN No type was specified for the decimal property 'Value' on entity type 'AccountMove'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-03-24 12:03:58.6312 WARN No type was specified for the decimal property 'Value' on entity type 'AccountMove'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-03-24 12:05:45.8660 INFO Save Account 000002
+2021-03-24 12:11:14.7092 INFO Find Account 000001
+2021-03-24 12:25:59.9075 WARN No type was specified for the decimal property 'Value' on entity type 'AccountMove'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-03-24 12:26:06.8449 INFO Find Account 000001

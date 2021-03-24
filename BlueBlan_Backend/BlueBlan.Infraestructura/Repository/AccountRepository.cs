@@ -139,7 +139,6 @@ namespace BlueBlan.Infraestructura.Repository
             }
 
         }
-
         public async Task<Account> getAccountByAccountNumber(string AccountNumbre)
         {
             try
@@ -147,6 +146,23 @@ namespace BlueBlan.Infraestructura.Repository
                 var account = await Task.Factory.StartNew(() =>
                 {
                     return _blueBankContext.Accounts.FirstOrDefault(x => x.Number == AccountNumbre);
+                });
+                return account;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        public async Task<Account> getAccountByAccountNumber(Guid Clientid, string AccountNumbre)
+        {
+            try
+            {
+                var account = await Task.Factory.StartNew(() =>
+                {
+                    return _blueBankContext.Accounts.FirstOrDefault(x => x.ClientId == Clientid && x.Number == AccountNumbre);
                 });
                 return account;
             }

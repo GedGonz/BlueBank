@@ -31,9 +31,9 @@ namespace BlueBan.Aplication.Services
             return await _accountDomineService.deleteAccount(_account);
         }
 
-        public async Task<Accountdto> getAccountByAccountNumber(string AccountNumbre)
+        public async Task<Accountdto> getAccountByAccountNumber(Guid Clientid, string AccountNumbre)
         {
-            var account= await _accountDomineService.getAccountByAccountNumber(AccountNumbre);
+            var account= await _accountDomineService.getAccountByAccountNumber( Clientid, AccountNumbre);
 
             var accountdto = _mapper.Map<Accountdto>(account);
             _logger.LogInformation($"Find Account {account.Number}");
