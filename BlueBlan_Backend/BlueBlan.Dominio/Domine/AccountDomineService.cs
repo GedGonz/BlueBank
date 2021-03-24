@@ -68,14 +68,16 @@ namespace BlueBlan.Dominio.Domine
             var account = await _accountRepository.getAccountByAccountNumber(AccountNumber);
 
             //Verify the type move
-
-            if (accountMove.TypeMove == ACOUNTMOVE_TYPE.CONSIGN)
+            switch (accountMove.TypeMove)
             {
-                account.Valuecurrent = account.Valuecurrent + accountMove.Value;
-            }
-            else if (accountMove.TypeMove == ACOUNTMOVE_TYPE.WITHDRAW)
-            {
-                account.Valuecurrent = account.Valuecurrent - accountMove.Value;
+                case ACOUNTMOVE_TYPE.WITHDRAW:
+                    account.Valuecurrent = account.Valuecurrent - accountMove.Value;
+                    break;
+                case ACOUNTMOVE_TYPE.CONSIGN:
+                    account.Valuecurrent = account.Valuecurrent + accountMove.Value;
+                    break;
+                default:
+                    break;
             }
 
             accountMove.AccountId = account.AccountId;

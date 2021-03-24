@@ -19,40 +19,82 @@ namespace BlueBlan.Infraestructura.Repository
         }
         public async Task<bool> deleteClient(Client client)
         {
-            var _client = await getClientById(client.ClientId);
-            _blueBankContext.Remove(_client);
-            return await save();
+            try
+            {
+                var _client = await getClientById(client.ClientId);
+                _blueBankContext.Remove(_client);
+                return await save();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
 
         }
 
         public async Task<IQueryable<Client>> getAllClients()
         {
-            var ListAllClient = await Task.Factory.StartNew(() =>
+            try
             {
-                return _blueBankContext.Clients.AsQueryable();
-            });
+                var ListAllClient = await Task.Factory.StartNew(() =>
+                {
+                    return _blueBankContext.Clients.AsQueryable();
+                });
 
-            return ListAllClient;
+                return ListAllClient;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public async Task<Client> getClientById(Guid id)
         {
-            return await _blueBankContext.Clients.FindAsync(id);
+            try
+            {
+                return await _blueBankContext.Clients.FindAsync(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
         public async Task<bool> saveClient(Client client)
         {
-            await _blueBankContext.Clients.AddAsync(client);
-            return await save();
+            try
+            {
+                await _blueBankContext.Clients.AddAsync(client);
+                return await save();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public async Task<bool> updateClient(Client client)
         {
+            try
+            {
+                _blueBankContext.Update(client);
+                return await save();
+            }
+            catch (Exception)
+            {
 
-            _blueBankContext.Update(client);
-            return await save();
+                throw;
+            }
 
         }
 
@@ -77,12 +119,21 @@ namespace BlueBlan.Infraestructura.Repository
 
         public async Task<bool> existsClient(Guid id)
         {
-            var exists = await Task.Factory.StartNew(() =>
+            try
             {
-                return _blueBankContext.Clients.Any(x => x.ClientId == id);
-            });
+                var exists = await Task.Factory.StartNew(() =>
+                {
+                    return _blueBankContext.Clients.Any(x => x.ClientId == id);
+                });
 
-            return exists;
+                return exists;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
     }

@@ -298,3 +298,19 @@ Error Number:547,State:0,Class:16
 2021-03-24 11:18:18.9673 WARN No type was specified for the decimal property 'Value' on entity type 'AccountMove'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
 2021-03-24 11:18:48.0130 INFO Find Account 000001
 2021-03-24 11:19:18.8823 INFO Find Account 000001
+2021-03-24 11:29:05.6205 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:29:46.2985 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:45:24.3419 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:46:22.3175 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:46:55.0692 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:47:15.9599 WARN No type was specified for the decimal property 'Value' on entity type 'AccountMove'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-03-24 11:47:17.5693 INFO Find Account 000001
+2021-03-24 11:47:24.1525 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:48:00.6804 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:48:08.8440 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:48:35.8231 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:49:08.0072 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:50:08.8517 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 11:58:48.4276 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 12:01:58.9083 ERROR An unhandled exception has occurred while executing the request.
+2021-03-24 12:02:09.1978 WARN No type was specified for the decimal property 'Value' on entity type 'AccountMove'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.

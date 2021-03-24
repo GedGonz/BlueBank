@@ -19,43 +19,87 @@ namespace BlueBlan.Infraestructura.Repository
         }
         public async Task<bool> deleteAccount(Account account)
         {
-            var _account = await getAccountById(account.AccountId);
-            _blueBankContext.Remove(_account);
+            try
+            {
+                var _account = await getAccountById(account.AccountId);
+                _blueBankContext.Remove(_account);
 
-            return await save();
+                return await save();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public async Task<Account> getAccountById(Guid id)
         {
-            return await _blueBankContext.Accounts.FindAsync(id);
+            try
+            {
+                return await _blueBankContext.Accounts.FindAsync(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         public async Task<IQueryable<Account>> getAllAccounts()
         {
-            var ListAllAccount = await Task.Factory.StartNew(() =>
+            try
             {
-                return _blueBankContext.Accounts.AsQueryable();
-            });
+                var ListAllAccount = await Task.Factory.StartNew(() =>
+                {
+                    return _blueBankContext.Accounts.AsQueryable();
+                });
 
-            return ListAllAccount;
+                return ListAllAccount;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
 
 
         public async Task<bool> saveAccount(Account account)
         {
-            await _blueBankContext.Accounts.AddAsync(account);
+            try
+            {
+                await _blueBankContext.Accounts.AddAsync(account);
 
-            return await save();
+                return await save();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
         }
 
         public async Task<bool> updateAccount(Account account)
         {
+            try
+            {
+                _blueBankContext.Update(account);
 
-              _blueBankContext.Update(account);
+                return await save();
+            }
+            catch (Exception)
+            {
 
-              return await save();
+                throw;
+            }
+
         }
 
         public async Task<bool> save()
@@ -79,21 +123,39 @@ namespace BlueBlan.Infraestructura.Repository
 
         public async Task<bool> existsAccount(string AccountNumbre)
         {
-            var exists = await Task.Factory.StartNew(() =>
+            try
             {
-                return _blueBankContext.Accounts.Any(x => x.Number == AccountNumbre);
-            });
+                var exists = await Task.Factory.StartNew(() =>
+                {
+                    return _blueBankContext.Accounts.Any(x => x.Number == AccountNumbre);
+                });
 
-            return exists;
+                return exists;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public async Task<Account> getAccountByAccountNumber(string AccountNumbre)
         {
-            var account = await Task.Factory.StartNew(() =>
+            try
             {
-                return _blueBankContext.Accounts.FirstOrDefault(x => x.Number == AccountNumbre);
-            });
-            return account;
+                var account = await Task.Factory.StartNew(() =>
+                {
+                    return _blueBankContext.Accounts.FirstOrDefault(x => x.Number == AccountNumbre);
+                });
+                return account;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

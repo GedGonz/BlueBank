@@ -20,30 +20,60 @@ namespace BlueBlan.Infraestructura.Repository
 
         public async Task<bool> existsAccountMove(string AccountNumber)
         {
-            var exists = await Task.Factory.StartNew(() =>
+            try
             {
-                return (from x in _blueBankContext.Accounts join y in _blueBankContext.AccountMoves on 
-                        x.AccountId equals y.AccountId where x.Number==AccountNumber select x).Any();
-            });
+                var exists = await Task.Factory.StartNew(() =>
+                {
+                    return (from x in _blueBankContext.Accounts
+                            join y in _blueBankContext.AccountMoves on x.AccountId equals y.AccountId
+                            where x.Number == AccountNumber
+                            select x).Any();
+                });
 
-            return exists;
+                return exists;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+           
         }
 
         public async Task<IQueryable<AccountMove>> getAccountByAccountMoveNumber(Guid Id,string AccountNumber)
         {
-            var accountMove = await Task.Factory.StartNew(() =>
+            try
             {
-                return (from x in _blueBankContext.Accounts
-                        join y in _blueBankContext.AccountMoves on x.AccountId equals y.AccountId
-                        where x.ClientId==Id && x.Number == AccountNumber
-                        select y);
-            });
-            return accountMove;
+                var accountMove = await Task.Factory.StartNew(() =>
+                {
+                    return (from x in _blueBankContext.Accounts
+                            join y in _blueBankContext.AccountMoves on x.AccountId equals y.AccountId
+                            where x.ClientId == Id && x.Number == AccountNumber
+                            select y);
+                });
+                return accountMove;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public async Task<AccountMove> getAccountMoveById(Guid id)
         {
-            return await _blueBankContext.AccountMoves.FindAsync(id);
+            try
+            {
+                return await _blueBankContext.AccountMoves.FindAsync(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
 
@@ -68,9 +98,18 @@ namespace BlueBlan.Infraestructura.Repository
 
         public async Task<bool> saveAccountMove(AccountMove accountMove)
         {
-            await _blueBankContext.AccountMoves.AddAsync(accountMove);
+            try
+            {
+                await _blueBankContext.AccountMoves.AddAsync(accountMove);
 
-            return await save();
+                return await save();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
     }

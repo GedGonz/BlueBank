@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BlueBan.Aplication.Mapper;
 using BlueBan.IoC;
 using BlueBlan.Infraestructura.Context;
+using BlueBlan_API.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -67,6 +68,7 @@ namespace BlueBlan_Backend
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.ConfigureExceptionHandler();
 
 
             app.UseHttpsRedirection();
