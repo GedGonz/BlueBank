@@ -3,6 +3,8 @@ using BlueBan.Aplication.Contracts;
 using BlueBan.Aplication.Entitydto;
 using BlueBlan.Dominio.Entity;
 using BlueBlan.Dominio.Services;
+using Microsoft.Extensions.Logging;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,16 +16,18 @@ namespace BlueBan.Aplication.Services
     {
         private readonly IAccountDomineService _accountDomineService;
         private readonly IMapper _mapper;
+        private readonly ILogger<AccountAplicationService> _logger;
 
-        public AccountAplicationService(IAccountDomineService _accountDomineService, IMapper _mapper)
+        public AccountAplicationService(IAccountDomineService _accountDomineService, IMapper _mapper, ILogger<AccountAplicationService> _logger)
         {
             this._accountDomineService = _accountDomineService;
             this._mapper = _mapper;
+            this._logger = _logger;
         }
         public async Task<bool> deleteAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-
+            _logger.LogInformation($"Delete Account {account.Number}");
             return await _accountDomineService.deleteAccount(_account);
         }
 
@@ -32,7 +36,7 @@ namespace BlueBan.Aplication.Services
             var account= await _accountDomineService.getAccountByAccountNumber(AccountNumbre);
 
             var accountdto = _mapper.Map<Accountdto>(account);
-
+            _logger.LogInformation($"Find Account {account.Number}");
             return accountdto;
         }
 
@@ -48,14 +52,14 @@ namespace BlueBan.Aplication.Services
         public async Task<bool> saveAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-
+            _logger.LogInformation($"Save Account {account.Number}");
             return await _accountDomineService.saveAccount(_account);
         }
 
         public async Task<bool> updateAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-
+            _logger.LogInformation($"Update Account {account.Number}");
             return await _accountDomineService.updateAccount(_account);
         }
 

@@ -62,8 +62,6 @@ C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backen
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBlan.Infraestructura.dll
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBlan.Infraestructura.pdb
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBlan.Dominio.pdb
-C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.csproj.CoreCompileInputs.cache
-C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.dll
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.pdb
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.genruntimeconfig.cache
@@ -73,3 +71,9 @@ C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backen
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.Aplication.pdb
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.IoC.dll
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\BlueBan.IoC.pdb
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\NLog.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\obj\Debug\netcoreapp3.1\BlueBlan_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan_Backend\bin\Debug\netcoreapp3.1\NLog.config
