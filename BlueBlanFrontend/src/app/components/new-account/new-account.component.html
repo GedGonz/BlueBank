@@ -1,1 +1,30 @@
-<p>new-account works!</p>
+<br/>
+<div class="row">
+    <div class="col-md-12">
+        <h4 class="text-center">Register New Account</h4>
+    </div>
+</div>
+<br>
+<div class="card">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="form-group">
+                <label for="NameText">Client</label>
+                <select class="form-control" name="SelectClients" id="Selectclient" [(ngModel)]="model.ClientId">
+                 
+                    <option *ngFor="let client of clients" [value]="client.clientId">
+                      {{client.name }} {{client.lastName}}
+                    </option>
+                  </select>
+                <label for="AccountNumber">Account Number</label>
+                <input type="number" class="form-control" id="Name" [(ngModel)]="model.Number">
+                <label for="Value">Value</label>
+                <input type="number" class="form-control" id="LastName" [(ngModel)]="model.ValueInit">
+            </div>
+            <br>
+            <a type="submit" class="btn btn-primary text-left " (click)="newAccount()">Save <fa name=" send " style="color: rgb(251, 251, 251); "></fa></a>
+            <a type="submit " class="btn btn-danger text-rigth " [routerLink]="['/accounts']">Return <fa name="undo " style="color: rgb(251, 251, 251); "></fa></a>
+        </div>
+    </div>
+
+</div>

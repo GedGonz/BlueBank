@@ -9,7 +9,11 @@ import { NewAccountComponent } from './components/new-account/new-account.compon
 import { MoveAccountComponent } from './components/move-account/move-account.component';
 import { HistoriMoveAccountComponent } from './components/histori-move-account/histori-move-account.component';
 import { NewClientComponent } from './components/new-client/new-client.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,17 @@ import { NewClientComponent } from './components/new-client/new-client.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-full-width',
+      preventDuplicates: true,
+      
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

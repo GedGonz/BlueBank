@@ -1,0 +1,12 @@
+.displayAccount {
+    padding: 20px 50px 20px 50px;
+    background: rgb(241, 240, 240);
+    font-size: 45px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.inputFind {
+    font-size: 40px;
+    font-weight: bold;
+}

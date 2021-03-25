@@ -1,1 +1,38 @@
-<p>consult-account works!</p>
+<br/>
+<div class="row">
+    <div class="col-md-12">
+        <h4 class="text-center">Consult Account</h4>
+    </div>
+</div>
+<br>
+<div class="card">
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <label class="text-center displayAccount" [(ngModel)]="model.valuecurrent">U$ 500.00</label>
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="form-group">
+
+                <input type="text" class="form-control text-center inputFind" [(ngModel)]="model.Number">
+                <a class="btn btn-primary btn-lg btn-block " (click)="getFindAccount()">
+                    <fa name="search" style="color: rgb(251, 251, 251); font-size: 30px;"></fa>
+                </a>
+                <a class="btn btn-danger btn-lg btn-block " [routerLink]="['/accounts']">
+                    <fa name="undo" style="color: rgb(251, 251, 251); font-size: 30px;"></fa>
+                </a>
+
+            </div>
+            <br>
+
+
+        </div>
+    </div>
+
+
+
+</div>
