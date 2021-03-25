@@ -9,7 +9,8 @@ import { HistoriMoveAccountComponent } from "./components/histori-move-account/h
 
 
 const routes: Routes = [
-  {path:'account',component:AccountComponent},
+  {path:'',component:AccountComponent},
+  {path:'accounts',component:AccountComponent},
   {path:'consult',component:ConsultAccountComponent},
   {path:'new',component:NewAccountComponent},
   {path:'move',component:MoveAccountComponent},
