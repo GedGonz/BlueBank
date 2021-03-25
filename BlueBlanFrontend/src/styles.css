@@ -11,3 +11,17 @@ body {
     background: linear-gradient(to right, #2F0743, #41295a);
     color: white;
 }
+
+.card {
+    padding: 70px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+    border-radius: 20px;
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+}
+
+.form-group>label {
+    color: rgb(39, 38, 38);
+}

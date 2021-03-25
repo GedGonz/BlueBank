@@ -8,6 +8,7 @@ import { ConsultAccountComponent } from './components/consult-account/consult-ac
 import { NewAccountComponent } from './components/new-account/new-account.component';
 import { MoveAccountComponent } from './components/move-account/move-account.component';
 import { HistoriMoveAccountComponent } from './components/histori-move-account/histori-move-account.component';
+import { NewClientComponent } from './components/new-client/new-client.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HistoriMoveAccountComponent } from './components/histori-move-account/h
     ConsultAccountComponent,
     NewAccountComponent,
     MoveAccountComponent,
-    HistoriMoveAccountComponent
+    HistoriMoveAccountComponent,
+    NewClientComponent
   ],
   imports: [
     BrowserModule,
