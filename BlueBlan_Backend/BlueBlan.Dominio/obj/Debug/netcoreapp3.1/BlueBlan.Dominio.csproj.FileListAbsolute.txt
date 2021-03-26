@@ -4,6 +4,6 @@ C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan.Domini
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan.Dominio\obj\Debug\netcoreapp3.1\BlueBlan.Dominio.csprojAssemblyReference.cache
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan.Dominio\obj\Debug\netcoreapp3.1\BlueBlan.Dominio.AssemblyInfoInputs.cache
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan.Dominio\obj\Debug\netcoreapp3.1\BlueBlan.Dominio.AssemblyInfo.cs
-C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan.Dominio\obj\Debug\netcoreapp3.1\BlueBlan.Dominio.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan.Dominio\obj\Debug\netcoreapp3.1\BlueBlan.Dominio.dll
 C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan.Dominio\obj\Debug\netcoreapp3.1\BlueBlan.Dominio.pdb
+C:\Users\Usuario\Desktop\Reposirtorios\BlueBank\BlueBlan_Backend\BlueBlan.Dominio\obj\Debug\netcoreapp3.1\BlueBlan.Dominio.csproj.CoreCompileInputs.cache
