@@ -1,8 +1,14 @@
 export class account {
-    AccountId: string;
-    Number: string;
-    ValueInit: string;
+    accountid: string;
+    number: string;
+    valueinit: string;
     valuecurrent: string;
-    Type: number;
-    ClientId: string;
+    type: number;
+    clientid: string;
+    accountmoves:[{
+        accountmoveid:string;
+        value: string;
+        typemove:number;
+        datemove:string;
+    }]
 }

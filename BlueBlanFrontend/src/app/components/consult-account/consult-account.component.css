@@ -4,9 +4,27 @@
     font-size: 45px;
     font-weight: bold;
     width: 100%;
+    color: rgb(141 124 124) !important;
 }
 
 .inputFind {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.text-total {
+    color: rgb(66, 66, 66);
+}
+
+.total-comisign {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(17, 99, 167) !important;
+}
+
+.total-withdraw {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(239 91 91) !important;
 }

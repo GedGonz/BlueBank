@@ -58,7 +58,7 @@ namespace BlueBlan_API.Controllers
 
             if (!issave) 
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {accountdto.Number}");
+                ModelState.AddModelError("", $"Something went wrong creating the record {accountdto.number}");
 
                 return StatusCode(500, ModelState);
             }
@@ -70,7 +70,7 @@ namespace BlueBlan_API.Controllers
         [HttpPatch("{id}")]
         public async Task<IActionResult> Patch(Guid id, [FromBody] Accountdto accountdto)
         {
-            if (accountdto == null || id != accountdto.AccountId)
+            if (accountdto == null || id != accountdto.accountid)
             {
                 return BadRequest(ModelState);
             }
@@ -79,7 +79,7 @@ namespace BlueBlan_API.Controllers
 
             if (!issave)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {accountdto.Number}");
+                ModelState.AddModelError("", $"Something went wrong creating the record {accountdto.number}");
 
                 return StatusCode(500, ModelState);
             }
@@ -103,7 +103,7 @@ namespace BlueBlan_API.Controllers
 
             if (!isdelete)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {account.Number}");
+                ModelState.AddModelError("", $"Something went wrong creating the record {account.number}");
 
                 return StatusCode(500, ModelState);
             }
@@ -139,7 +139,7 @@ namespace BlueBlan_API.Controllers
 
             if (!issave)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {accountMovedto.Value}");
+                ModelState.AddModelError("", $"Something went wrong creating the record {accountMovedto.value}");
 
                 return StatusCode(500, ModelState);
             }

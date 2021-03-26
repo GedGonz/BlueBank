@@ -49,14 +49,7 @@ namespace BlueBlan_Backend
             //Configure IOC
             ContainerIoC.Services(services);
             //enable requetes cors
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                      builder => builder.WithOrigins("*")
-                      .AllowAnyMethod()
-                      .AllowAnyHeader()
-                      .AllowCredentials());
-            });
+            services.AddCors();
 
 
         }
@@ -70,6 +63,11 @@ namespace BlueBlan_Backend
             }
             app.ConfigureExceptionHandler();
 
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) 
+                .AllowCredentials());
 
             app.UseHttpsRedirection();
 

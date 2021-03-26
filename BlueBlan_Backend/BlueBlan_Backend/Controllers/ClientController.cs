@@ -57,7 +57,7 @@ namespace BlueBlan_API.Controllers
 
             if (!issave)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {clientdto.Name}");
+                ModelState.AddModelError("", $"Something went wrong creating the record {clientdto.name}");
 
                 return StatusCode(500, ModelState);
             }
@@ -69,7 +69,7 @@ namespace BlueBlan_API.Controllers
         [HttpPatch("{id}")]
         public async Task<IActionResult> Patch(Guid id, [FromBody] Clientdto clientdto)
         {
-            if (clientdto == null || id != clientdto.ClientId)
+            if (clientdto == null || id != clientdto.clientid)
             {
                 return BadRequest(ModelState);
             }
@@ -78,7 +78,7 @@ namespace BlueBlan_API.Controllers
 
             if (!issave)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {clientdto.Name}");
+                ModelState.AddModelError("", $"Something went wrong creating the record {clientdto.name}");
 
                 return StatusCode(500, ModelState);
             }
@@ -102,7 +102,7 @@ namespace BlueBlan_API.Controllers
 
             if (!isdelete)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {client.Name}");
+                ModelState.AddModelError("", $"Something went wrong creating the record {client.name}");
 
                 return StatusCode(500, ModelState);
             }

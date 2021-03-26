@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NewMoveWithdrawComponent } from './components/new-move-withdraw/new-move-withdraw.component';
+import { NewMoveConsignComponent } from './components/new-move-consign/new-move-consign.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,9 @@ import { ToastrModule } from 'ngx-toastr';
     NewAccountComponent,
     MoveAccountComponent,
     HistoriMoveAccountComponent,
-    NewClientComponent
+    NewClientComponent,
+    NewMoveWithdrawComponent,
+    NewMoveConsignComponent
   ],
   imports: [
     BrowserModule,

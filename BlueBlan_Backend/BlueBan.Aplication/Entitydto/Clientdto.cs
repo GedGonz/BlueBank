@@ -7,11 +7,11 @@ namespace BlueBan.Aplication.Entitydto
 {
     public class Clientdto
     {
-        public Guid ClientId { get; set; }
+        public Guid clientid { get; set; }
         [Required(ErrorMessage = "Name is required")]
-        public string Name { get; set; }
+        public string name { get; set; }
         [Required(ErrorMessage = "LastName is required")]
-        public string LastName { get; set; }
-        public List<Accountdto> Accounts { get; set; }
+        public string lastname { get; set; }
+        public List<Accountdto> accounts { get; set; }
     }
 }

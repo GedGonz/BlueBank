@@ -27,7 +27,7 @@ namespace BlueBan.Aplication.Services
         public async Task<bool> deleteAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-            _logger.LogInformation($"Delete Account {account.Number}");
+            _logger.LogInformation($"Delete Account {account.number}");
             return await _accountDomineService.deleteAccount(_account);
         }
 
@@ -36,7 +36,7 @@ namespace BlueBan.Aplication.Services
             var account= await _accountDomineService.getAccountByAccountNumber( Clientid, AccountNumbre);
 
             var accountdto = _mapper.Map<Accountdto>(account);
-            _logger.LogInformation($"Find Account {account.Number}");
+            _logger.LogInformation($"Find Account {AccountNumbre}");
             return accountdto;
         }
 
@@ -52,14 +52,14 @@ namespace BlueBan.Aplication.Services
         public async Task<bool> saveAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-            _logger.LogInformation($"Save Account {account.Number}");
+            _logger.LogInformation($"Save Account {account.number}");
             return await _accountDomineService.saveAccount(_account);
         }
 
         public async Task<bool> updateAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-            _logger.LogInformation($"Update Account {account.Number}");
+            _logger.LogInformation($"Update Account {account.number}");
             return await _accountDomineService.updateAccount(_account);
         }
 

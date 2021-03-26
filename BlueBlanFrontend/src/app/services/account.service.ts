@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {  HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { account } from "../model/account";
+import { accountmove } from '../model/accountmove';
+import { typemove } from "../model/typemove";
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -21,14 +23,15 @@ export class AccountService {
 
   newAccountService(_account: account){
 
-    let data={
-      number:_account.Number,
-      valueinit: _account.ValueInit,
-      type: _account.Type,
-      clientid: _account.ClientId
-    }
     const url = `${this.uri}/account`;
-    return this.http.post(url, data);
+    return this.http.post(url, _account);
   }
 
+  newMoveService(_accountmove: accountmove){
+
+    console.log(_accountmove);
+    const url = `${this.uri}/account/Move/${_accountmove.number}`;
+    
+    return this.http.post(url, _accountmove);
+  }
 }

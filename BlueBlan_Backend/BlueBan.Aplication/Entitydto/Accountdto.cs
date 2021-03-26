@@ -18,17 +18,17 @@ namespace BlueBan.Aplication.Entitydto
     }
     public class Accountdto
     {
-        public Guid AccountId { get; set; }
+        public Guid accountid { get; set; }
         [Required(ErrorMessage = "Number is required")]
-        public string Number { get; set; }
+        public string number { get; set; }
         [Required(ErrorMessage = "Value is required")]
-        public decimal ValueInit { get; set; }
-        public decimal Valuecurrent { get; set; }
+        public decimal valueinit { get; set; }
+        public decimal valuecurrent { get; set; }
         [Required(ErrorMessage = "Type is required")]
-        public ACOUNT_TYPE Type { get; set; }
-        public STATE State { get; set; }
-        public Guid ClientId { get; set; }
-        public Clientdto Client { get; set; }
+        public ACOUNT_TYPE type { get; set; }
+        public STATE state { get; set; }
+        public Guid clientid { get; set; }
+        public virtual List<AccountMovedto> accountmoves { get; set; }
     }
 }
 
