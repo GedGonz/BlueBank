@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlueBlan.Infraestructura.Migrations
 {
     [DbContext(typeof(BlueBankContext))]
-    [Migration("20210326151916_addtableUser")]
+    [Migration("20210326182715_addtableUser")]
     partial class addtableUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,6 +127,9 @@ namespace BlueBlan.Infraestructura.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -171,13 +174,14 @@ namespace BlueBlan.Infraestructura.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c9166fe7-fe44-435d-adb4-380c253cf1e0",
+                            ConcurrencyStamp = "efb73aa6-6753-4c8a-8e1b-f642088d36f5",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEHEJuFsCXK884v2poqtZijLl8y0hiJ4MxWL9Pn60Mdj71YNpwQwXYoYX0MU8arF7dA==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a502cf02-7a23-40e4-804d-437222448b35",
+                            SecurityStamp = "b71f8c45-7dd3-4675-85ac-5f7ceb15c6d9",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });

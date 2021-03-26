@@ -18,12 +18,15 @@ namespace BlueBan.IoC
             service.AddScoped<IAccountRepository, AccountRepository>();
             service.AddScoped<IClientRepository, ClientRepository>();
             service.AddScoped<IAccountMoveRepository, AccountMoveRepository>();
+            service.AddScoped<IUserRepository, UserRepository>();
 
             service.AddScoped<IAccountDomineService, AccountDomineService>();
             service.AddScoped<IClientDomineService, ClientDomineService>();
+            service.AddScoped<IUserDomineService, UserDomineService>();
 
             service.AddScoped<IAccountAplicationService, AccountAplicationService>();
             service.AddScoped<IClientAplicationService, ClientAplicationService>();
+            service.AddScoped<IUserAplicationService, UserAplicationService>();
 
 
             return service;

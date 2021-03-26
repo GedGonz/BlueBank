@@ -97,8 +97,8 @@ namespace BlueBlan.Infraestructura.Context
             };
 
             PasswordHasher<User> passwordHasher = new PasswordHasher<User>();
-            passwordHasher.HashPassword(user, "Admin123*");
-
+            var passworsHas=passwordHasher.HashPassword(user, "Admin123*");
+            user.PasswordHash = passworsHas;
             builder.Entity<User>().HasData(user);
         }
 

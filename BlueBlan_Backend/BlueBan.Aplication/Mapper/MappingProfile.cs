@@ -27,10 +27,16 @@ namespace BlueBan.Aplication.Mapper
            .ForMember(x => x.lastname, ops => ops.MapFrom(x => x.LastName)).ReverseMap();
 
             CreateMap<AccountMove, AccountMovedto>()
-             .ForMember(x => x.accountId, ops => ops.MapFrom(x => x.AccountId))
-             .ForMember(x => x.datemove, ops => ops.MapFrom(x => x.DateMove))
-             .ForMember(x => x.value, ops => ops.MapFrom(x => x.Value))
-             .ForMember(x => x.typemove, ops => ops.MapFrom(x => x.TypeMove)).ReverseMap();
+            .ForMember(x => x.accountId, ops => ops.MapFrom(x => x.AccountId))
+            .ForMember(x => x.datemove, ops => ops.MapFrom(x => x.DateMove))
+            .ForMember(x => x.value, ops => ops.MapFrom(x => x.Value))
+            .ForMember(x => x.typemove, ops => ops.MapFrom(x => x.TypeMove)).ReverseMap();
+
+            CreateMap<User, Userdto>()
+            .ForMember(x => x.username, ops => ops.MapFrom(x => x.UserName))
+            .ForMember(x => x.email, ops => ops.MapFrom(x => x.Email))
+            .ForMember(x => x.password, ops => ops.MapFrom(x => x.PasswordHash))
+            .ForMember(x => x.name, ops => ops.MapFrom(x => x.Name)).ReverseMap();
         }
     }
 }

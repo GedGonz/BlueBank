@@ -4,14 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlueBan.Aplication.Contracts;
 using BlueBan.Aplication.Entitydto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace BlueBlan_API.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[controller]")]
     [ApiController]
+    
     public class AccountController : ControllerBase
     {
         private readonly IAccountAplicationService _accountAplicationService;

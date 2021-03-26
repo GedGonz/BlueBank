@@ -26,6 +26,7 @@ namespace BlueBlan.Infraestructura.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -221,8 +222,8 @@ namespace BlueBlan.Infraestructura.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "b74ddd14-6340-4840-95c2-db12554843e5", 0, "c9166fe7-fe44-435d-adb4-380c253cf1e0", "admin@gmail.com", false, false, null, null, null, null, "1234567890", false, "a502cf02-7a23-40e4-804d-437222448b35", false, "Admin" });
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "b74ddd14-6340-4840-95c2-db12554843e5", 0, "efb73aa6-6753-4c8a-8e1b-f642088d36f5", "admin@gmail.com", false, false, null, null, null, null, "AQAAAAEAACcQAAAAEHEJuFsCXK884v2poqtZijLl8y0hiJ4MxWL9Pn60Mdj71YNpwQwXYoYX0MU8arF7dA==", "1234567890", false, "b71f8c45-7dd3-4675-85ac-5f7ceb15c6d9", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
