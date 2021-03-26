@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NewMoveWithdrawComponent } from './components/new-move-withdraw/new-move-withdraw.component';
 import { NewMoveConsignComponent } from './components/new-move-consign/new-move-consign.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewMoveConsignComponent } from './components/new-move-consign/new-move-
     MoveAccountComponent,
     NewClientComponent,
     NewMoveWithdrawComponent,
-    NewMoveConsignComponent
+    NewMoveConsignComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
