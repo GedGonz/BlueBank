@@ -10,13 +10,25 @@
         <div class="col-md-12 ">
             <div class="form-group">
                 <label for="NameText">Name</label>
-                <input type="text" class="form-control" id="Name" [(ngModel)]="model.name">
+                <input type="text" class="form-control inputFind" id="Name" [(ngModel)]="model.name">
                 <label for="NameText">LastName</label>
-                <input type="text" class="form-control" id="LastName" [(ngModel)]="model.lastName">
+                <input type="text" class="form-control inputFind" id="LastName" [(ngModel)]="model.lastname">
             </div>
             <br>
-            <a type="submit" class="btn btn-primary text-left " (click)="newClient()">Save <fa name=" send " style="color: rgb(251, 251, 251); "></fa></a>
-            <a type="submit " class="btn btn-danger text-rigth " [routerLink]="['/accounts']">Return <fa name="undo " style="color: rgb(251, 251, 251); "></fa></a>
+            <div class="row">
+                <div class="col-md-6">
+                    <a class="btn btn-success btn-lg  btn-block" (click)="newClient()">
+                        <fa name="send" style="color: rgb(251, 251, 251); font-size: 20px;"></fa>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-danger btn-lg  btn-block" [routerLink]="['/accounts']">
+                        <fa name="undo" style="color: rgb(251, 251, 251); font-size: 20px;"></fa>
+                    </a>
+                </div>
+
+            </div>
+
         </div>
     </div>
 

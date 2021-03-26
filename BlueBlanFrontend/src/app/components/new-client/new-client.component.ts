@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { client } from "../../model/client";
 import { ClientService } from "../../services/client.service";
 import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-new-client',
   templateUrl: './new-client.component.html',
@@ -24,7 +25,14 @@ export class NewClientComponent implements OnInit {
       this.model= new client();
       console.log(res)
       this.toastr.success('Client create!', 'Success!');
-    })
+    }, (err: HttpErrorResponse) => {
+
+      if(err.status==404)
+        this.toastr.info('Client NotFound!', 'Infotmation!');
+      if(err.status==505)
+        this.toastr.info('Interal Error!', 'Error!');
+      console.log(err.status);
+    });
   }
 
 

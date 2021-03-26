@@ -7,7 +7,6 @@ import { AccountComponent } from './components/account/account.component';
 import { ConsultAccountComponent } from './components/consult-account/consult-account.component';
 import { NewAccountComponent } from './components/new-account/new-account.component';
 import { MoveAccountComponent } from './components/move-account/move-account.component';
-import { HistoriMoveAccountComponent } from './components/histori-move-account/histori-move-account.component';
 import { NewClientComponent } from './components/new-client/new-client.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +23,6 @@ import { NewMoveConsignComponent } from './components/new-move-consign/new-move-
     ConsultAccountComponent,
     NewAccountComponent,
     MoveAccountComponent,
-    HistoriMoveAccountComponent,
     NewClientComponent,
     NewMoveWithdrawComponent,
     NewMoveConsignComponent

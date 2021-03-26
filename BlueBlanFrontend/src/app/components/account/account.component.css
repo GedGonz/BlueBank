@@ -1,0 +1,26 @@
+.btn-light {
+    color: #212529;
+    /* background-color: #4e87c8; */
+    background: linear-gradient(to right, #ed0fbe, #2596b8);
+    border-color: #621fb8;
+}
+
+.btn-light:hover {
+    color: #ffffff;
+    background: linear-gradient(to right, #8b056e, #2596b8);
+    border-color: #621fb8;
+}
+
+.textMenu {
+    color: rgb(255, 255, 255);
+    margin-top: 25px;
+}
+
+.textMenuIcon {
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
+
+.textMenuIcon :hover {
+    font-size: 50px;
+}

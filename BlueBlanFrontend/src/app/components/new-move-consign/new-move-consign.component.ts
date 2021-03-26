@@ -5,13 +5,13 @@ import { accountmove } from "../../model/accountmove";
 import { typemove } from "../../model/typemove";
 import { HttpErrorResponse } from '@angular/common/http';
 @Component({
-  selector: 'app-new-move-withdraw',
-  templateUrl: './new-move-withdraw.component.html',
-  styleUrls: ['./new-move-withdraw.component.css']
+  selector: 'app-new-move-consign',
+  templateUrl: './new-move-consign.component.html',
+  styleUrls: ['./new-move-consign.component.css']
 })
-export class NewMoveWithdrawComponent implements OnInit {
+export class NewMoveConsignComponent implements OnInit {
 
-    
+  
   model: accountmove = new accountmove();
   _typemove:typemove = new  typemove();
 
@@ -23,7 +23,7 @@ newMoveConsign()
 {
   console.log(this.model);
 
-  this.model.typemove=this._typemove.withdraw
+  this.model.typemove=this._typemove.consign
 
   this.serviceAccount.newMoveService(this.model).subscribe((res)=>{
     
@@ -33,12 +33,15 @@ newMoveConsign()
 
     this.toastr.success('Moving created!', 'Success!');
   }, (err: HttpErrorResponse) => {
+
     if(err.status==505)
       this.toastr.info('Interal Error!', 'Error!');
     console.log(err.status);
   });
 
 }
+
+
   ngOnInit() {
   }
 
