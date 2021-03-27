@@ -12,7 +12,7 @@ export class AuthenticateGuard implements CanActivate {
     private authService: AuthService) {}
 
   canActivate() {
-    console.log('toke: ',this.authService.getToken())
+  
     if (this.authService.getToken()) {
       return true;
     }
