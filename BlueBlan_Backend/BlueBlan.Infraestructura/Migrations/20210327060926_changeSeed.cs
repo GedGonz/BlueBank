@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BlueBlan.Infraestructura.Migrations
 {
-    public partial class addtableUser : Migration
+    public partial class changeSeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -223,7 +223,7 @@ namespace BlueBlan.Infraestructura.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "b74ddd14-6340-4840-95c2-db12554843e5", 0, "efb73aa6-6753-4c8a-8e1b-f642088d36f5", "admin@gmail.com", false, false, null, null, null, null, "AQAAAAEAACcQAAAAEHEJuFsCXK884v2poqtZijLl8y0hiJ4MxWL9Pn60Mdj71YNpwQwXYoYX0MU8arF7dA==", "1234567890", false, "b71f8c45-7dd3-4675-85ac-5f7ceb15c6d9", false, "Admin" });
+                values: new object[] { "b74ddd14-6340-4840-95c2-db12554843e5", 0, "84e9b8c0-7392-4672-9af5-b567839ccfcd", null, false, false, null, null, null, "ADMIN", "AQAAAAEAACcQAAAAEAXJ9KtvtHNu4Bm4dWvHvdpHnHYx+yxZumuhAhlraPFrSItAVVpe8GeOmEsuOSIvPA==", null, false, "de8550f3-94ce-4236-a031-e58c4647ea6a", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

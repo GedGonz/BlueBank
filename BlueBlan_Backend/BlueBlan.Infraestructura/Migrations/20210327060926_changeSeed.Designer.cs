@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlueBlan.Infraestructura.Migrations
 {
     [DbContext(typeof(BlueBankContext))]
-    [Migration("20210326182715_addtableUser")]
-    partial class addtableUser
+    [Migration("20210327060926_changeSeed")]
+    partial class changeSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -174,14 +174,13 @@ namespace BlueBlan.Infraestructura.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "efb73aa6-6753-4c8a-8e1b-f642088d36f5",
-                            Email = "admin@gmail.com",
+                            ConcurrencyStamp = "84e9b8c0-7392-4672-9af5-b567839ccfcd",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEHEJuFsCXK884v2poqtZijLl8y0hiJ4MxWL9Pn60Mdj71YNpwQwXYoYX0MU8arF7dA==",
-                            PhoneNumber = "1234567890",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAXJ9KtvtHNu4Bm4dWvHvdpHnHYx+yxZumuhAhlraPFrSItAVVpe8GeOmEsuOSIvPA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b71f8c45-7dd3-4675-85ac-5f7ceb15c6d9",
+                            SecurityStamp = "de8550f3-94ce-4236-a031-e58c4647ea6a",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });

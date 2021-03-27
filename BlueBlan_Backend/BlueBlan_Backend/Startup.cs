@@ -46,25 +46,13 @@ namespace BlueBlan_Backend
                 options.UseSqlServer().UseLazyLoadingProxies();
             });
 
-            //services.AddIdentityCore<User>(options => { })
-            //    .AddSignInManager<SignInManager<User>>()
-            //    .AddUserManager<UserManager<User>>()
-            //    .AddEntityFrameworkStores<BlueBankContext>();
 
-            services.AddIdentity<User, IdentityRole>()
-            .AddSignInManager<SignInManager<User>>()
-            .AddUserManager<UserManager<User>>()
-            .AddEntityFrameworkStores<BlueBankContext>()
-            .AddDefaultTokenProviders();
-
-
-            //generar una semilla
             string secret = this.Configuration.GetSection("AppSettings:Token").Value;
-            //Se convierte en bytes
+
             byte[] secretByte = Encoding.UTF8.GetBytes(secret);
-            //nuget: System.IdentityModel.Tokens.Jwt
+
             var key = new SymmetricSecurityKey(secretByte);
-            //Crea la credencial con el algoritmo HmacSha256
+
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -79,6 +67,7 @@ namespace BlueBlan_Backend
                     IssuerSigningKey = key
                 };
             });
+
             //Configure AutoMapper
             services.AddAutoMapper(typeof(MappingProfile));
 

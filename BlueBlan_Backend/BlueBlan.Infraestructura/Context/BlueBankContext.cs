@@ -87,19 +87,31 @@ namespace BlueBlan.Infraestructura.Context
         //Seed Data
         private void SeedUsers(ModelBuilder builder)
         {
-            User user = new User()
-            {
-                Id = "b74ddd14-6340-4840-95c2-db12554843e5",
-                UserName = "Admin",
-                Email = "admin@gmail.com",
-                LockoutEnabled = false,
-                PhoneNumber = "1234567890"
-            };
+            //User user = new User()
+            //{
+            //    Id = "b74ddd14-6340-4840-95c2-db12554843e5",
+            //    UserName = "Admin",
+            //    Email = "admin@gmail.com",
+            //    LockoutEnabled = false,
+            //    PhoneNumber = "1234567890"
+            //};
 
-            PasswordHasher<User> passwordHasher = new PasswordHasher<User>();
-            var passworsHas=passwordHasher.HashPassword(user, "Admin123*");
-            user.PasswordHash = passworsHas;
-            builder.Entity<User>().HasData(user);
+            //PasswordHasher<User> passwordHasher = new PasswordHasher<User>();
+            //var passworsHas=passwordHasher.HashPassword(user, "Admin123*");
+            //user.PasswordHash = passworsHas;
+            //builder.Entity<User>().HasData(user);
+
+            var hasher = new PasswordHasher<User>();
+            //Seeding the User to AspNetUsers table
+            builder.Entity<User>().HasData(
+                new User
+                {
+                    Id = "b74ddd14-6340-4840-95c2-db12554843e5", // primary key
+                    UserName = "Admin",
+                    NormalizedUserName = "ADMIN",
+                    PasswordHash = hasher.HashPassword(null, "Admin123*")
+                }
+            );
         }
 
         private void SeedRoles(ModelBuilder builder)

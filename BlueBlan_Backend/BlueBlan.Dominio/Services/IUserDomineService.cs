@@ -9,7 +9,6 @@ namespace BlueBlan.Dominio.Services
     public interface IUserDomineService
     {
         public Task<User> findUser(string userName);
-        public Task<bool> existsUser(string userName);
         public Task<bool> Authenticate(string username, string password);
     }
 }

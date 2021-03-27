@@ -27,10 +27,6 @@ namespace BlueBan.Aplication.Services
             return await _userDoimneService.Authenticate(username, password);
         }
 
-        public async Task<bool> existsUser(string userName)
-        {
-            return await _userDoimneService.existsUser(userName);
-        }
 
         public async Task<Userdto> findUser(string userName)
         {
