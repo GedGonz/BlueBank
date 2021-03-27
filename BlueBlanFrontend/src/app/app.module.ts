@@ -18,6 +18,7 @@ import { NewMoveConsignComponent } from './components/new-move-consign/new-move-
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AuthInterceptorService } from "./services/auth-interceptor.service";
     FormsModule,
     CommonModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-full-width',

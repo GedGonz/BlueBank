@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from "../../model/user";
+import { User } from '../../model/user';
 import { AuthService } from "../../services/auth.service";
 import { authtoken } from "../../model/auth-token";
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from "@angular/router";
+import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,15 +14,23 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
+  loginForm: FormGroup;
+  model: User =new User();
 
-  mode: User =new User();
-
-  constructor(private _authService: AuthService,private toastr: ToastrService,private _route: Router) { }
+  constructor(private _authService: AuthService,private toastr: ToastrService,
+    private _route: Router, private _fb: FormBuilder) 
+  {
+    this.createForm();
+  }
   
 
   login(){
 
-    this._authService.Login(this.mode).subscribe((resp:authtoken)=>{
+    this.model.username=this.loginForm.value.user;
+    this.model.password=this.loginForm.value.password;
+    console.log(this.model)
+
+    this._authService.Login(this.model).subscribe((resp:authtoken)=>{
     this._authService.setToken(resp.token);
       console.log(resp);
       this._route.navigateByUrl("/accounts");
@@ -34,6 +44,7 @@ export class LoginComponent implements OnInit {
       console.log(err.status);
     });
 
+
   }
 
   logout() {
@@ -41,6 +52,13 @@ export class LoginComponent implements OnInit {
     this._route.navigateByUrl('/login');
   }
 
+
+  createForm() {
+    this.loginForm = this._fb.group({
+       user: ['', Validators.required ],
+       password: ['', Validators.required ]
+    });
+  }
 
   ngOnInit() {
   }

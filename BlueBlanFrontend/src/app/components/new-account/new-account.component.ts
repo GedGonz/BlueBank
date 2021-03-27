@@ -5,6 +5,8 @@ import { ClientService } from "../../services/client.service";
 import { AccountService } from "../../services/account.service";
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
@@ -12,15 +14,17 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class NewAccountComponent implements OnInit {
 
-  
+  accountForm: FormGroup;
   model: account = new account();
   clients: client[] = [];
 
   constructor(private serviceClient: ClientService,
               private toastr: ToastrService,
-              private serviceAccount: AccountService) { 
+              private serviceAccount: AccountService,
+              private _fb: FormBuilder) { 
 
     this.getAllClients();
+    this.createForm();
   }
 
 
@@ -46,12 +50,33 @@ export class NewAccountComponent implements OnInit {
 
 newAccount()
 {
+  
+  this.model.number=this.accountForm.value.number;
+  this.model.valueinit=this.accountForm.value.valueinit;
+  this.model.clientid=this.accountForm.value.clientid;
+
   console.log(this.model);
   this.serviceAccount.newAccountService(this.model).subscribe((res)=>{
     this.model= new account();
     console.log(res)
     this.toastr.success('Account create!', 'Success!');
-  })
+  }, (err: HttpErrorResponse) => {
+
+      if(err.status==400)
+        this.toastr.warning('error sending data!', 'Error!');
+      if(err.status==500)
+        this.toastr.error('Internal Error!', 'Error!');
+    });
+    this.accountForm.setValue({number: '', valueinit: '',clientid:''});
+}
+
+
+createForm() {
+  this.accountForm = this._fb.group({
+    number: ['', Validators.required ],
+    valueinit: ['', Validators.required ],    
+    clientid: ['', Validators.required ]
+  });
 }
 
   ngOnInit() {

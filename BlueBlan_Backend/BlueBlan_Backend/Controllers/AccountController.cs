@@ -188,7 +188,11 @@ namespace BlueBlan_API.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-
+                var existsaccount = await _accountAplicationService.existsAccount(AccountNumber);
+                if (!existsaccount) 
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, $"Acccount number: {AccountNumber} not exists ");
+                }
 
                 var issave = await _accountAplicationService.creatMoveAccount(AccountNumber, accountMovedto);
 
