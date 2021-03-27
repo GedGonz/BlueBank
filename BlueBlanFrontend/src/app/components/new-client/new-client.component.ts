@@ -29,9 +29,9 @@ export class NewClientComponent implements OnInit {
 
       if(err.status==404)
         this.toastr.info('Client NotFound!', 'Infotmation!');
-      if(err.status==505)
-        this.toastr.info('Interal Error!', 'Error!');
-      console.log(err.status);
+      if(err.status==500)
+        this.toastr.error('Internal Error!', 'Error!');
+
     });
   }
 

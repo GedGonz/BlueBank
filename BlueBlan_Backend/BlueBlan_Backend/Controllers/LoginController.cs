@@ -34,19 +34,27 @@ namespace BlueBlan_API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Userdto login)
         {
-            var isAuthenticate =await _userAplicationService.Authenticate(login.username, login.password);
-
-            if (isAuthenticate) 
+            try
             {
-                var user = await _userAplicationService.findUser(login.username);
+                var isAuthenticate = await _userAplicationService.Authenticate(login.username, login.password);
 
-                if (user != null)
+                if (isAuthenticate)
                 {
-                    var tokenString = GenerateJSONWebToken(user);
-                    return Ok(new { token = tokenString });
+                    var user = await _userAplicationService.findUser(login.username);
+
+                    if (user != null)
+                    {
+                        var tokenString = GenerateJSONWebToken(user);
+                        return Ok(new { token = tokenString });
+                    }
                 }
+
             }
-         
+            catch (Exception)
+            {
+                return Unauthorized();
+            }
+
 
             return Unauthorized();
         }

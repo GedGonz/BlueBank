@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
         this.toastr.info('User Unauthorized!', 'Infotmation!');
       if(err.status==404)
         this.toastr.info('User NotFound!', 'Infotmation!');
-      if(err.status==505)
-        this.toastr.info('Interal Error!', 'Error!');
+      if(err.status==500)
+        this.toastr.error('Internal Error!', 'Error!');
       console.log(err.status);
     });
 

@@ -29,6 +29,10 @@ namespace BlueBan.Aplication.Entitydto
         public STATE state { get; set; }
         public Guid clientid { get; set; }
         public virtual List<AccountMovedto> accountmoves { get; set; }
+        
+        public override string ToString() {
+            return string.Format("number: {0}, amoun: {1}, clientId: {2}",number,valueinit,clientid);
+        }
     }
 }
 

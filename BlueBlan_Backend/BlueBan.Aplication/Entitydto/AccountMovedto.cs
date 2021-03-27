@@ -19,5 +19,9 @@ namespace BlueBan.Aplication.Entitydto
         public ACOUNTMOVE_TYPE typemove { get; set; }
         public DateTime datemove { get; set; }
         public Guid accountId { get; set; }
+        public override string ToString()
+        {
+            return string.Format("value: {0}, typemove: {1}, datemove: {2}", value, typemove, datemove);
+        }
     }
 }

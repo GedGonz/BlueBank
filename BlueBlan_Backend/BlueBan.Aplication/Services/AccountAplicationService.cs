@@ -27,16 +27,21 @@ namespace BlueBan.Aplication.Services
         public async Task<bool> deleteAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-            _logger.LogInformation($"Delete Account {account.number}");
-            return await _accountDomineService.deleteAccount(_account);
+            var isdeleted= await _accountDomineService.deleteAccount(_account);
+            if (isdeleted) 
+            {
+                _logger.LogInformation($"Delete Account {account.ToString()}");
+            }
+
+            return isdeleted;
         }
 
-        public async Task<Accountdto> getAccountByAccountNumber(Guid Clientid, string AccountNumbre)
+        public async Task<Accountdto> getAccountByAccountNumber(string AccountNumbre)
         {
-            var account= await _accountDomineService.getAccountByAccountNumber( Clientid, AccountNumbre);
+            var account= await _accountDomineService.getAccountByAccountNumber(AccountNumbre);
 
             var accountdto = _mapper.Map<Accountdto>(account);
-            _logger.LogInformation($"Find Account {AccountNumbre}");
+
             return accountdto;
         }
 
@@ -52,15 +57,25 @@ namespace BlueBan.Aplication.Services
         public async Task<bool> saveAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-            _logger.LogInformation($"Save Account {account.number}");
-            return await _accountDomineService.saveAccount(_account);
+            var isvave = await _accountDomineService.saveAccount(_account);
+
+            if (isvave)
+            {
+                _logger.LogInformation($"Account created {account.ToString()}");
+            }
+
+            return isvave;
         }
 
         public async Task<bool> updateAccount(Accountdto account)
         {
             var _account = _mapper.Map<Account>(account);
-            _logger.LogInformation($"Update Account {account.number}");
-            return await _accountDomineService.updateAccount(_account);
+            var isupdated= await _accountDomineService.updateAccount(_account);
+            if (isupdated)
+            {
+                _logger.LogInformation($"Updated account {account.ToString()}");
+            }
+            return isupdated;
         }
 
         public async Task<bool> existsAccount(string AccountNumbre)
@@ -73,15 +88,21 @@ namespace BlueBan.Aplication.Services
             var accountMove = await _accountDomineService.getAccountMoveByAccountNumber(Id,AccountNumber);
 
             var accountMovedto = _mapper.Map<List<AccountMovedto>>(accountMove);
-            //_logger.LogInformation($"Find Account Move {accountMove.Account.Number}");
             return accountMovedto;
         }
 
         public async Task<bool> creatMoveAccount(string AccountNumber, AccountMovedto accountMove)
         {
             var _accountMove = _mapper.Map<AccountMove>(accountMove);
-            //_logger.LogInformation($"Save Account {_accountMove.Account.Number}");
-            return await _accountDomineService.creatMoveAccount(AccountNumber, _accountMove);
+
+            var iscreatedMove = await _accountDomineService.creatMoveAccount(AccountNumber, _accountMove);
+
+            if (iscreatedMove) 
+            {
+
+                _logger.LogInformation($"movement created { _accountMove.ToString()}");
+            }
+            return iscreatedMove;
         }
     }
 }

@@ -15,8 +15,8 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
 
-  getAccount(_id: string,_numberAccount: string): Observable<account> {
-    const url = `${this.uri}/account/${_id}/${_numberAccount}`;
+  getAccount(_numberAccount: string): Observable<account> {
+    const url = `${this.uri}/account/${_numberAccount}`;
 
     return this.http.get<account>(url);
   }

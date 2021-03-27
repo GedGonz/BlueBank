@@ -24,92 +24,130 @@ namespace BlueBlan_API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var clientAll = await _clientAplicationService.getAllClients();
-            if (clientAll == null || clientAll.Count == 0)
+            try
             {
-                return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+                var clientAll = await _clientAplicationService.getAllClients();
+                if (clientAll == null || clientAll.Count == 0)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+                }
+                return Ok(clientAll);
             }
-            return Ok(clientAll);
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
+            }
+           
         }
 
         // GET api/<AccountController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            var client = await _clientAplicationService.getClientById(id);
-            if (client == null)
+            try
             {
-                return StatusCode(StatusCodes.Status404NotFound, "Not Found Client!");
+                var client = await _clientAplicationService.getClientById(id);
+                if (client == null)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, "Not Found Client!");
+                }
+                return Ok(client);
             }
-            return Ok(client);
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
+            }
         }
 
         // POST api/<AccountController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Clientdto clientdto)
         {
-
-            if (clientdto == null)
-            { 
-                return BadRequest(ModelState);
-            }
-
-
-            var issave = await _clientAplicationService.saveClient(clientdto);
-
-            if (!issave)
+            try
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {clientdto.name}");
+                if (clientdto == null)
+                {
+                    return BadRequest(ModelState);
+                }
 
-                return StatusCode(500, ModelState);
+
+                var issave = await _clientAplicationService.saveClient(clientdto);
+
+                if (!issave)
+                {
+                    ModelState.AddModelError("", $"Something went wrong creating the record {clientdto.name}");
+
+                    return StatusCode(500, ModelState);
+                }
+
+                return Ok(clientdto);
             }
-
-            return Ok(clientdto);
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
+            }
+            
         }
 
         // PATCH api/<AccountController>/5
         [HttpPatch("{id}")]
         public async Task<IActionResult> Patch(Guid id, [FromBody] Clientdto clientdto)
         {
-            if (clientdto == null || id != clientdto.clientid)
+            try
             {
-                return BadRequest(ModelState);
+                if (clientdto == null || id != clientdto.clientid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var issave = await _clientAplicationService.updateClient(clientdto);
+
+                if (!issave)
+                {
+                    ModelState.AddModelError("", $"Something went wrong creating the record {clientdto.name}");
+
+                    return StatusCode(500, ModelState);
+                }
+
+                return Ok(clientdto);
             }
-
-            var issave = await _clientAplicationService.updateClient(clientdto);
-
-            if (!issave)
+            catch (Exception)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {clientdto.name}");
-
-                return StatusCode(500, ModelState);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
             }
-
-            return Ok(clientdto);
+           
         }
 
         // DELETE api/<AccountController>/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var isexist = await _clientAplicationService.existsClient(id);
-            if (!isexist)
+            try
             {
-                return NotFound();
+                var isexist = await _clientAplicationService.existsClient(id);
+                if (!isexist)
+                {
+                    return NotFound();
+                }
+
+                var client = await _clientAplicationService.getClientById(id);
+
+                var isdelete = await _clientAplicationService.deleteClient(client);
+
+                if (!isdelete)
+                {
+                    ModelState.AddModelError("", $"Something went wrong creating the record {client.name}");
+
+                    return StatusCode(500, ModelState);
+                }
+
+                return NoContent();
             }
-
-            var client = await _clientAplicationService.getClientById(id);
-
-            var isdelete = await _clientAplicationService.deleteClient(client);
-
-            if (!isdelete)
+            catch (Exception)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {client.name}");
-
-                return StatusCode(500, ModelState);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
             }
-
-            return NoContent();
+            
         }
     }
 }

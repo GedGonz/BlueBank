@@ -26,92 +26,135 @@ namespace BlueBlan_API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var accountAll = await _accountAplicationService.getAllAccounts();
-            if (accountAll==null || accountAll.Count==0)
+            try
             {
-                return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+                var accountAll = await _accountAplicationService.getAllAccounts();
+
+                if (accountAll == null || accountAll.Count == 0)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+                }
+
+                return Ok(accountAll);
             }
-            return Ok(accountAll);
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
+            }
+
+           
         }
 
         // GET api/<AccountController>/5
-        [HttpGet("{Id}/{AccountNumber}")]
-        public async Task<IActionResult> Get(Guid Id,string AccountNumber)
+        [HttpGet("{AccountNumber}")]
+        public async Task<IActionResult> Get(string AccountNumber)
         {
-            var account = await _accountAplicationService.getAccountByAccountNumber(Id,AccountNumber);
-            if (account == null)
+            try
             {
-                return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+                var account = await _accountAplicationService.getAccountByAccountNumber(AccountNumber);
+
+                if (account == null)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+                }
+                return Ok(account);
             }
-            return Ok(account);
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
+            }
+
         }
 
         // POST api/<AccountController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Accountdto accountdto)
         {
-
-            if (accountdto==null) 
+            try
             {
-                return BadRequest(ModelState);
+                if (accountdto == null)
+                {
+                    return BadRequest(ModelState);
+                }
+
+
+                var issave = await _accountAplicationService.saveAccount(accountdto);
+
+                if (!issave)
+                {
+                    ModelState.AddModelError("", $"Something went wrong creating the record {accountdto.ToString()}");
+
+                    return StatusCode(500, ModelState);
+                }
+
+                return Ok(accountdto);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
             }
 
-
-            var issave=await _accountAplicationService.saveAccount(accountdto);
-
-            if (!issave) 
-            {
-                ModelState.AddModelError("", $"Something went wrong creating the record {accountdto.number}");
-
-                return StatusCode(500, ModelState);
-            }
-
-           return Ok(accountdto);
         }
 
         // PATCH api/<AccountController>/5
         [HttpPatch("{id}")]
         public async Task<IActionResult> Patch(Guid id, [FromBody] Accountdto accountdto)
         {
-            if (accountdto == null || id != accountdto.accountid)
+            try
             {
-                return BadRequest(ModelState);
+                if (accountdto == null || id != accountdto.accountid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var issave = await _accountAplicationService.updateAccount(accountdto);
+
+                if (!issave)
+                {
+                    ModelState.AddModelError("", $"Something went wrong creating the record {accountdto.ToString()}");
+
+                    return StatusCode(500, ModelState);
+                }
+
+                return Ok(accountdto);
             }
-
-            var issave = await _accountAplicationService.updateAccount(accountdto);
-
-            if (!issave)
+            catch (Exception)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {accountdto.number}");
-
-                return StatusCode(500, ModelState);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
             }
-
-            return Ok(accountdto);
+           
         }
 
         // DELETE api/<AccountController>/5
         [HttpDelete("{Id}/{AccountNumber}")]
-        public async Task<IActionResult> Delete(Guid Id,string AccountNumber)
+        public async Task<IActionResult> Delete(string AccountNumber)
         {
-            var isexist = await _accountAplicationService.existsAccount(AccountNumber);
-            if (!isexist)
+            try
             {
-                return NotFound();
+                var isexist = await _accountAplicationService.existsAccount(AccountNumber);
+                if (!isexist)
+                {
+                    return NotFound();
+                }
+
+                var account = await _accountAplicationService.getAccountByAccountNumber(AccountNumber);
+
+                var isdelete = await _accountAplicationService.deleteAccount(account);
+
+                if (!isdelete)
+                {
+                    ModelState.AddModelError("", $"Something went wrong creating the record {account.ToString()}");
+
+                    return StatusCode(500, ModelState);
+                }
+
+                return NoContent();
             }
-
-            var account = await _accountAplicationService.getAccountByAccountNumber(Id,AccountNumber);
-
-            var isdelete = await _accountAplicationService.deleteAccount(account);
-
-            if (!isdelete)
+            catch (Exception)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {account.number}");
-
-                return StatusCode(500, ModelState);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
             }
-
-            return NoContent();
+            
         }
 
         //MOVE ACCOUNT
@@ -119,35 +162,50 @@ namespace BlueBlan_API.Controllers
         [HttpGet("Move/{Id}/{AccountNumber}")]
         public async Task<IActionResult> Move(Guid Id,string AccountNumber)
         {
-            var accountMove = await _accountAplicationService.getAccountMoveByAccountNumber(Id,AccountNumber);
-            if (accountMove == null || accountMove.Count == 0)
+            try
             {
-                return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+                var accountMove = await _accountAplicationService.getAccountMoveByAccountNumber(Id, AccountNumber);
+                if (accountMove == null || accountMove.Count == 0)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, "Not Found Account!");
+                }
+                return Ok(accountMove);
             }
-            return Ok(accountMove);
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
+            }
+           
         }
 
         // POST api/<AccountController>
         [HttpPost("Move/{AccountNumber}")]
         public async Task<IActionResult> Move(string AccountNumber,[FromBody] AccountMovedto accountMovedto)
         {
-
-            if (accountMovedto == null)
+            try
             {
-                return BadRequest(ModelState);
+                if (accountMovedto == null)
+                {
+                    return BadRequest(ModelState);
+                }
+
+
+                var issave = await _accountAplicationService.creatMoveAccount(AccountNumber, accountMovedto);
+
+                if (!issave)
+                {
+                    ModelState.AddModelError("", $"Something went wrong creating the record {accountMovedto.ToString()}");
+
+                    return StatusCode(500, ModelState);
+                }
+
+                return Ok(accountMovedto);
             }
-
-
-            var issave = await _accountAplicationService.creatMoveAccount(AccountNumber,accountMovedto);
-
-            if (!issave)
+            catch (Exception)
             {
-                ModelState.AddModelError("", $"Something went wrong creating the record {accountMovedto.value}");
-
-                return StatusCode(500, ModelState);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Internal Error!");
             }
-
-            return Ok(accountMovedto);
+           
         }
     }
 }

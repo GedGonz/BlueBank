@@ -3,6 +3,7 @@ using BlueBan.Aplication.Contracts;
 using BlueBan.Aplication.Entitydto;
 using BlueBlan.Dominio.Entity;
 using BlueBlan.Dominio.Services;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,11 +14,14 @@ namespace BlueBan.Aplication.Services
     public class ClientAplicationService : IClientAplicationService
     {
         private readonly IClientDomineService _clientDomineService;
+
+        private readonly ILogger<ClientAplicationService> _logger;
         private readonly IMapper _mapper;
 
-        public ClientAplicationService(IClientDomineService _clientDomineService, IMapper _mapper)
+        public ClientAplicationService(IClientDomineService _clientDomineService, ILogger<ClientAplicationService> _logger,IMapper _mapper)
         {
             this._clientDomineService = _clientDomineService;
+            this._logger = _logger;
             this._mapper = _mapper;
         }
         public async Task<bool> deleteClient(Clientdto client)
@@ -48,7 +52,14 @@ namespace BlueBan.Aplication.Services
         {
             var _client = _mapper.Map<Client>(client);
 
-            return await _clientDomineService.saveClient(_client);
+            var isSave =await _clientDomineService.saveClient(_client);
+
+            if (isSave) 
+            {
+                _logger.LogInformation($"Delete Account {client.ToString()}");
+            }
+
+            return isSave;
         }
 
         public async Task<bool> updateClient(Clientdto client)

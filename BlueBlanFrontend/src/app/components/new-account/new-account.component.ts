@@ -33,7 +33,13 @@ export class NewAccountComponent implements OnInit {
        console.log('Clientes'+ JSON.stringify(this.clients));
 
        }, (err: HttpErrorResponse) => {
-         console.log(err);
+        if(err.status==401)
+        this.toastr.info('User Unauthorized!', 'Infotmation!');
+        if(err.status==404)
+          this.toastr.info('Clients NotFound!', 'Infotmation!');
+        if(err.status==500)
+          this.toastr.error('Internal Error!', 'Error!');
+        console.log(err.status);
        });
 }
 

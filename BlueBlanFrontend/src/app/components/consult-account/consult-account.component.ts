@@ -27,7 +27,7 @@ export class ConsultAccountComponent implements OnInit {
     this.TotalComisgn=0.00;
     this.TotalWithDraw=0.00;
 
-    this.serviceAccount.getAccount('cd7e352a-0f22-4277-46f9-08d8f0a7c634',this.model.number).subscribe( (resp: account) => {
+    this.serviceAccount.getAccount(this.model.number).subscribe( (resp: account) => {
       
       this.model=resp;
       this.loadDataMove();
@@ -35,9 +35,9 @@ export class ConsultAccountComponent implements OnInit {
 
        }, (err: HttpErrorResponse) => {
          if(err.status==404)
-           this.toastr.info('Account NotFound!', 'Infotmation!');
+           this.toastr.warning('Account NotFound!', 'Infotmation!');
          if(err.status==505)
-           this.toastr.info('Interal Error!', 'Error!');
+           this.toastr.error('Interal Error!', 'Error!');
          console.log(err.status);
        });
 }
