@@ -1,0 +1,22 @@
+.title {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.title span {
+    color: rgb(88 160 255);
+}
+
+.pading-right-20 {
+    padding-right: 20px;
+}
+
+.slogan {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.slogan span {
+    color: rgb(88 160 255);
+}

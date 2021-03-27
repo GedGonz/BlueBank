@@ -27,7 +27,7 @@ export class ConsultAccountComponent implements OnInit {
     this.TotalComisgn=0.00;
     this.TotalWithDraw=0.00;
 
-    this.serviceAccount.getAccount('3b7ec7d0-cdb4-49d5-6d1d-08d8eee5290c',this.model.number).subscribe( (resp: account) => {
+    this.serviceAccount.getAccount('cd7e352a-0f22-4277-46f9-08d8f0a7c634',this.model.number).subscribe( (resp: account) => {
       
       this.model=resp;
       this.loadDataMove();

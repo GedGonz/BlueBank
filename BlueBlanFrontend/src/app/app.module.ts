@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NewMoveWithdrawComponent } from './components/new-move-withdraw/new-move-withdraw.component';
 import { NewMoveConsignComponent } from './components/new-move-consign/new-move-consign.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LayoutComponent } from './components/layout/layout.component';
     NewClientComponent,
     NewMoveWithdrawComponent,
     NewMoveConsignComponent,
-    LayoutComponent
+    LayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
