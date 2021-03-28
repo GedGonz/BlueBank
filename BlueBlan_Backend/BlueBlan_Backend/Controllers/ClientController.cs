@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlueBan.Aplication.Contracts;
 using BlueBan.Aplication.Entitydto;
+using BlueBlan_API.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -81,7 +82,11 @@ namespace BlueBlan_API.Controllers
                     return StatusCode(500, ModelState);
                 }
 
-                return Ok(clientdto);
+                return Ok(new ResponseModel()
+                {
+                    StatusCode = 200,
+                    Message = "Successfully created client!"
+                });
             }
             catch (Exception)
             {
@@ -110,7 +115,11 @@ namespace BlueBlan_API.Controllers
                     return StatusCode(500, ModelState);
                 }
 
-                return Ok(clientdto);
+                return Ok(new ResponseModel()
+                {
+                    StatusCode = 200,
+                    Message = "Successfully updated client!"
+                });
             }
             catch (Exception)
             {
@@ -142,7 +151,11 @@ namespace BlueBlan_API.Controllers
                     return StatusCode(500, ModelState);
                 }
 
-                return NoContent();
+                return Ok(new ResponseModel()
+                {
+                    StatusCode = 200,
+                    Message = "Successfully deleted client!"
+                });
             }
             catch (Exception)
             {

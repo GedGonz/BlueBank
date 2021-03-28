@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlueBan.Aplication.Contracts;
 using BlueBan.Aplication.Entitydto;
+using BlueBlan_API.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -87,7 +88,11 @@ namespace BlueBlan_API.Controllers
                     return StatusCode(500, ModelState);
                 }
 
-                return Ok(accountdto);
+                return Ok(new ResponseModel()
+                {
+                    StatusCode = 200,
+                    Message = "account created successfully!"
+                });
             }
             catch (Exception)
             {
@@ -116,7 +121,11 @@ namespace BlueBlan_API.Controllers
                     return StatusCode(500, ModelState);
                 }
 
-                return Ok(accountdto);
+                return Ok(new ResponseModel()
+                {
+                    StatusCode = 200,
+                    Message = "account updated successfully!"
+                });
             }
             catch (Exception)
             {
@@ -148,7 +157,11 @@ namespace BlueBlan_API.Controllers
                     return StatusCode(500, ModelState);
                 }
 
-                return NoContent();
+                return Ok(new ResponseModel()
+                {
+                    StatusCode = 200,
+                    Message = "account deleted successfully!"
+                });
             }
             catch (Exception)
             {
@@ -203,7 +216,11 @@ namespace BlueBlan_API.Controllers
                     return StatusCode(500, ModelState);
                 }
 
-                return Ok(accountMovedto);
+                return Ok(new ResponseModel()
+                {
+                    StatusCode = 200,
+                    Message = "successfully created movement!"
+                });
             }
             catch (Exception)
             {

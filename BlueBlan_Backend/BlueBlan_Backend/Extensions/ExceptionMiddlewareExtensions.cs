@@ -24,7 +24,7 @@ namespace BlueBlan_API.Extensions
                     if (contextFeature != null)
                     {
                        
-                        await context.Response.WriteAsync(new ErrorDetails()
+                        await context.Response.WriteAsync(new ResponseModel()
                         {
                             StatusCode = context.Response.StatusCode,
                             Message = "Internal Server Error."

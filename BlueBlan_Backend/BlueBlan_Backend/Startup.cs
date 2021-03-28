@@ -86,7 +86,7 @@ namespace BlueBlan_Backend
             {
                 app.UseDeveloperExceptionPage();
             }
-            //app.ConfigureExceptionHandler();
+            app.ConfigureExceptionHandler();
 
             app.UseCors(x => x
                 .AllowAnyMethod()

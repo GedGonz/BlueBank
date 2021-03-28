@@ -76,7 +76,25 @@ namespace BlueBlanUnitTest
             //Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
+        [Fact]
+        public async Task getAccountsNotFoundauthorized()
+        {
+            // Arrange
+            var request = new HttpRequestMessage(HttpMethod.Get, "/api/account")
+            {
+                Content = new StringContent("", Encoding.UTF8, "application/json")
+            };
 
+            // Act
+            var accessToken = FakeJwtManager.GenerateJwtToken();
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+
+            var response = await httpClient.SendAsync(request);
+
+            //Assert
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
         [Fact]
         public async Task newClientauthorized()
         {
@@ -105,7 +123,7 @@ namespace BlueBlanUnitTest
         public async Task deleteClientauthorized()
         {
             // Arrange
-            var request = new HttpRequestMessage(HttpMethod.Delete, "/api/client/3e6f2d09-dfd5-42b2-6499-08d8f1594cd9")
+            var request = new HttpRequestMessage(HttpMethod.Delete, "/api/client/0db1cca0-9012-4158-db6f-08d8f1fb868c")
             {
                 Content = new StringContent("", Encoding.UTF8, "application/json")
             };
@@ -118,7 +136,7 @@ namespace BlueBlanUnitTest
             var response = await httpClient.SendAsync(request);
 
             //Assert
-            Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
         [Fact]

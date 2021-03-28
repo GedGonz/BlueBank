@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlueBlan_API.Model
 {
-    public class ErrorDetails
+    public class ResponseModel
     {
         public int StatusCode { get; set; }
         public string Message { get; set; }
