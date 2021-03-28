@@ -5,6 +5,7 @@ import { accountmove } from "../../model/accountmove";
 import { typemove } from "../../model/typemove";
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { response } from 'src/app/model/response';
 
 @Component({
   selector: 'app-new-move-withdraw',
@@ -31,20 +32,17 @@ newMoveConsign()
   this.model.number=this.movewithdrawForm.value.number;
   this.model.value=this.movewithdrawForm.value.value;
   this.model.typemove=this._typemove.withdraw
-  console.log(this.model);
-  this.serviceAccount.newMoveService(this.model).subscribe((res)=>{
+
+  this.serviceAccount.newMoveService(this.model).subscribe((res: response)=>{
     
     this.model=new accountmove();
     
-    console.log(res)
-
-    this.toastr.success('Moving created!', 'Success!');
+    this.toastr.success(res.message, 'Success!');
   }, (err: HttpErrorResponse) => {
     if(err.status==400)
       this.toastr.warning(err.error, 'Error!');
     if(err.status==505)
       this.toastr.info('Interal Error!', 'Error!');
-    console.log(err.status);
   });
 
 }

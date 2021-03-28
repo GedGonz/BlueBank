@@ -5,6 +5,7 @@ import { accountmove } from "../../model/accountmove";
 import { typemove } from "../../model/typemove";
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { response } from 'src/app/model/response';
 
 @Component({
   selector: 'app-new-move-consign',
@@ -31,12 +32,11 @@ newMoveConsign()
   this.model.value=this.moveconsignForm.value.value;
   this.model.typemove=this._typemove.consign
 
-  this.serviceAccount.newMoveService(this.model).subscribe((res)=>{
+  this.serviceAccount.newMoveService(this.model).subscribe((res:response)=>{
 
     this.model=new accountmove();
 
-
-    this.toastr.success('Moving created!', 'Success!');
+    this.toastr.success(res.message, 'Success!');
   }, (err: HttpErrorResponse) => {
    if(err.status==400)
         this.toastr.warning(err.error, 'Error!');

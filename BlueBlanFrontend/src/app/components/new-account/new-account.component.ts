@@ -6,6 +6,7 @@ import { AccountService } from "../../services/account.service";
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { response } from 'src/app/model/response';
 
 @Component({
   selector: 'app-new-account',
@@ -33,8 +34,6 @@ export class NewAccountComponent implements OnInit {
     this.serviceClient.getClient().subscribe( (resp: client[]) => {
 
       this.clients= resp;
- 
-       console.log('Clientes'+ JSON.stringify(this.clients));
 
        }, (err: HttpErrorResponse) => {
         if(err.status==401)
@@ -43,7 +42,6 @@ export class NewAccountComponent implements OnInit {
           this.toastr.info('Clients NotFound!', 'Infotmation!');
         if(err.status==500)
           this.toastr.error('Internal Error!', 'Error!');
-        console.log(err.status);
        });
 }
 
@@ -55,11 +53,10 @@ newAccount()
   this.model.valueinit=this.accountForm.value.valueinit;
   this.model.clientid=this.accountForm.value.clientid;
 
-  console.log(this.model);
-  this.serviceAccount.newAccountService(this.model).subscribe((res)=>{
+  this.serviceAccount.newAccountService(this.model).subscribe((res: response)=>{
     this.model= new account();
-    console.log(res)
-    this.toastr.success('Account create!', 'Success!');
+
+    this.toastr.success(res.message, 'Success!');
   }, (err: HttpErrorResponse) => {
 
       if(err.status==400)

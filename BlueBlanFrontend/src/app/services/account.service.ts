@@ -29,7 +29,6 @@ export class AccountService {
 
   newMoveService(_accountmove: accountmove){
 
-    console.log(_accountmove);
     const url = `${this.uri}/account/Move/${_accountmove.number}`;
     
     return this.http.post(url, _accountmove);

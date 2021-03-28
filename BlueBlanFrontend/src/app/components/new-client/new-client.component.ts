@@ -4,6 +4,7 @@ import { ClientService } from "../../services/client.service";
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { response } from 'src/app/model/response';
 
 @Component({
   selector: 'app-new-client',
@@ -28,11 +29,11 @@ export class NewClientComponent implements OnInit {
   {
     this.model.name=this.clientForm.value.name;
     this.model.lastname=this.clientForm.value.lastname;
-    console.log(this.model);
-    this.service.newClientService(this.model).subscribe((res)=>{
+
+    this.service.newClientService(this.model).subscribe((res: response)=>{
       this.model= new client();
-      console.log(res)
-      this.toastr.success('Client create!', 'Success!');
+
+      this.toastr.success(res.message, 'Success!');
     }, (err: HttpErrorResponse) => {
 
       if(err.status==400)

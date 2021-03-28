@@ -12,11 +12,9 @@ export class MoveAccountComponent implements OnInit {
   accounts: account;
 
   constructor() {
-    console.log('valor accounts: ',this.accounts);
    }
 
   ngOnInit() {
-    console.log('valor accounts: ',this.accounts);
     this.accounts=new account();
   }
 

@@ -8,22 +8,33 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 export class LayoutComponent implements OnInit   {
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2 ) {
-    let body=this.elementRef.nativeElement.ownerDocument.body;
-    let footer=this.elementRef.nativeElement.ownerDocument.footer;
 
-    renderer.setStyle(body,'background','linear-gradient(to right, #0395ff, #a53398)');
-    //renderer.setStyle(footer,'color','white');
    }
 
   ngOnInit() {
   }
 
-ngOnDestroy() {
-  let body2=this.elementRef.nativeElement.ownerDocument.body;
-  let footer2=this.elementRef.nativeElement.ownerDocument.footer;
 
-  this.renderer.setStyle(body2,'background','white');
-  //this.renderer.setStyle(footer2,'color','rgb(82, 80, 80)');
+  ngAfterViewInit() {
+
+    let body: HTMLElement = document.getElementsByClassName('body')[0] as HTMLElement;
+    let footer: HTMLElement = document.getElementsByClassName('footer')[0] as HTMLElement;
+
+
+    footer.style.color='white';
+    body.style.background='linear-gradient(to right, #0395ff, #a53398)'
+
+    
+}
+ngOnDestroy() {
+
+  let body: HTMLElement = document.getElementsByClassName('body')[0] as HTMLElement;
+  let footer: HTMLElement = document.getElementsByClassName('footer')[0] as HTMLElement;
+  footer.removeAttribute("color");
+  footer.setAttribute("color",'rgb(82, 80, 80)');
+ 
+  footer.style.color='rgb(82, 80, 80)';
+  body.style.background='white'
   
 }
 }

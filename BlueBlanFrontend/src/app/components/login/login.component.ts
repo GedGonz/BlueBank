@@ -28,11 +28,11 @@ export class LoginComponent implements OnInit {
 
     this.model.username=this.loginForm.value.user;
     this.model.password=this.loginForm.value.password;
-    console.log(this.model)
+
 
     this._authService.Login(this.model).subscribe((resp:authtoken)=>{
     this._authService.setToken(resp.token);
-      console.log(resp);
+
       this._route.navigateByUrl("/accounts");
     }, (err: HttpErrorResponse) => {
       if(err.status==401)
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         this.toastr.info('User NotFound!', 'Infotmation!');
       if(err.status==500)
         this.toastr.error('Internal Error!', 'Error!');
-      console.log(err.status);
+
     });
 
 

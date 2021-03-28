@@ -21,7 +21,6 @@ intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
   let request = req;
 
   if (token) {
-    console.log('toke: ',this._authService.getToken())
     request = req.clone({
       setHeaders: {
         authorization: `Bearer ${ token }`

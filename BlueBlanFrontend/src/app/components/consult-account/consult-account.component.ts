@@ -38,7 +38,6 @@ export class ConsultAccountComponent implements OnInit {
            this.toastr.warning('Account NotFound!', 'Infotmation!');
          if(err.status==505)
            this.toastr.error('Interal Error!', 'Error!');
-         console.log(err.status);
        });
 }
 
