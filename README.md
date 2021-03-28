@@ -5,7 +5,7 @@ Estas es una pequeña aplicacion (BluBank) que se conecta para consumir los dato
 
 
 
-# Supuestos de negocio y Solucion del problema:
+## Supuestos de negocio y Solucion del problema:
 
 ### Supuestos: 
 
@@ -17,6 +17,15 @@ Esta es una aplicacion web que realiza las operaciones basicas de un proceso de 
 + Realizar el proceso de Consignacion a un numero de cuenta determinado.
 + Realizar el proceso de Retiro a un numero de cuenta determinado.
 + Realizar la consulta de la cuenta con un numero de cuenta determinado.
+
+### Pendientes: 
+
+Esta aplicacion web es un pequeño prototipo de la gestion de cuenta de ahorro de un banco, por ello es una pequeña parte de una gran cantidad de reglas de negocio que puede contener un oragnizacion como esta.
+Al contar con mayor tiempo se podria:
++ Crear mas reglas de nogocio en este.
++ Atacar las busquedas de los clientes.
++ Darle un diseño mas formal deacuerdo a las metricas de la organizacion.
++ Mostrar mas informacion del cliente al consultar la cuenta.
 
 
 ### Aplicacion Web
@@ -43,7 +52,7 @@ Esta aplicacion web es compatible con dispositvos moviles y se adapta a la panta
 
 
 
-# Tecnologia utilizada: 
+## Tecnologia utilizada: 
 
 La tecnologia utilizada en este proyecto esta dividida en dos areas:
 
@@ -65,7 +74,7 @@ La tecnologia utilizada en este proyecto esta dividida en dos areas:
  Se hizo uso de los Nuget para instalar dependecias como JWT para la seguridad y autorizacion de la misma e IdentityUser para la gestion de usuarios y roles.
 
 
-# Arquitectura de la aplicacion web:
+## Arquitectura de la aplicacion web:
 ### Autenticacion Angular
 La arquitectura utilizada para esta aplicacion es la siguiente:
 se utiliza JWT para la autenticacion de usuarios, esto para darle mas seguridad a la apliacion, cada peticion realizada a los endpoint de la API estan restringidas por la autorizacion, es por ello que la aplicacion cuenta con un sistema de seguridad para la utenticacion de usuarios.
