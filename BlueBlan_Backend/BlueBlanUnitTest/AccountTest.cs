@@ -105,7 +105,7 @@ namespace BlueBlanUnitTest
         public async Task deleteClientauthorized()
         {
             // Arrange
-            var request = new HttpRequestMessage(HttpMethod.Delete, "/api/client/f594f67a-7640-4086-0133-08d8f1837527")
+            var request = new HttpRequestMessage(HttpMethod.Delete, "/api/client/3e6f2d09-dfd5-42b2-6499-08d8f1594cd9")
             {
                 Content = new StringContent("", Encoding.UTF8, "application/json")
             };

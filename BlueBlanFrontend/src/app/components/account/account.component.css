@@ -1,13 +1,17 @@
+div {
+    font-family: 'Kaushan Script', cursive;
+}
+
 .btn-light {
     color: #212529;
     /* background-color: #4e87c8; */
-    background: linear-gradient(to right, #830fed, #2596b8);
+    background: linear-gradient(to right, #790fed, #21a7d0);
     border-color: #621fb8;
 }
 
 .btn-light:hover {
     color: #ffffff;
-    background: linear-gradient(to right, #8b056e, #2596b8);
+    background: linear-gradient(to right, #143ed4, #19bff1);
     border-color: #621fb8;
 }
 
@@ -28,6 +32,7 @@
 .title {
     font-size: 45px;
     font-weight: bold;
+    text-shadow: 3px -3px 0px
 }
 
 .title span {
