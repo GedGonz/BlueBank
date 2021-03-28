@@ -1,4 +1,4 @@
-![](../BlueBlanFrontend/src/assets/image/Principal.png)
+![](BlueBlanFrontend/src/assets/image/Principal.png)
 # BlueBank
 
 Estas es una pequeña aplicacion (BluBank) que se conecta para consumir los datos de una API
@@ -26,19 +26,19 @@ Se creo una aplicacion donde aplica todas las reglas de negocio que se aplantean
 #### Pagina de Incio
 En esta pagina el usuario administrador tendra que loguearse para poder accder a la opciones de la aplicacion
 
-![](../BlueBlanFrontend/src/assets/image/Principal.png)
+![](BlueBlanFrontend/src/assets/image/Principal.png)
 
 #### Pagina principal
-![](../BlueBlanFrontend/src/assets/image/page1.png)
+![](BlueBlanFrontend/src/assets/image/page1.png)
 
 #### Pagina de consulta de cuenta
-![](../BlueBlanFrontend/src/assets/image/page2.png)
+![](BlueBlanFrontend/src/assets/image/page2.png)
 
 
 #### Soporte Movil
 Esta aplicacion web es compatible con dispositvos moviles y se adapta a la pantalla
 
-![](../BlueBlanFrontend/src/assets/image/page3.png)
+![](BlueBlanFrontend/src/assets/image/page3.png)
 
 
 
@@ -99,7 +99,7 @@ Para poder ejecutar este proyecto es necesario tener:
 
 Ejecutar `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se volverá a cargar automáticamente si cambia alguno de los archivos de origen.
 
-![](../BlueBlanFrontend/src/assets/image/terminal.png)
+![](BlueBlanFrontend/src/assets/image/terminal.png)
 
 #### Backend .Net Core
 
@@ -117,4 +117,4 @@ Ejecute la siguiente sintaxi en la terminal:
 ```cs
 update-database -Context BlueBankContext
 ```
-![](../BlueBlanFrontend/src/assets/image/adminconsole.png)
+![](BlueBlanFrontend/src/assets/image/adminconsole.png)
