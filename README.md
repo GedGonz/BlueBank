@@ -38,7 +38,7 @@ En esta pagina el usuario administrador tendra que loguearse para poder accder a
 ![](BlueBlanFrontend/src/assets/image/Principal.png)
 
 #### Pagina principal
-![](BlueBlanFrontend/src/assets/image/page1.png)
+![](BlueBlanFrontend/src/assets/image/Page1.png)
 
 #### Pagina de consulta de cuenta
 ![](BlueBlanFrontend/src/assets/image/page2.png)
@@ -126,4 +126,4 @@ Ejecute la siguiente sintaxi en la terminal:
 ```cs
 update-database -Context BlueBankContext
 ```
-![](BlueBlanFrontend/src/assets/image/adminconsole.png)
+![](BlueBlanFrontend/src/assets/image/adminConsole.png)
