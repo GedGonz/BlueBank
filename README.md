@@ -1,7 +1,7 @@
 ![](BlueBlanFrontend/src/assets/image/Principal.png)
 # BlueBank
 
-Estas es una pequeña aplicacion (BluBank) que se conecta para consumir los datos de una API
+Estas es una pequeña aplicacion web que realiza la gestion de cuenta de ahorro de un banco que se conecta para consumir los datos de una API
 
 
 
@@ -30,8 +30,16 @@ Al contar con mayor tiempo se podria:
 
 ### Aplicacion Web
 
-Se creo una aplicacion donde aplica todas las reglas de negocio que se aplantean anteriormente
+Se creo una aplicacion donde aplica todas las reglas de negocio que se plantean anteriormente
 
+
+
+#### Demo
+Aquí hay una demostración en vivo funcional :  https://bluebankapp.herokuapp.com/
+##### Credenciales
+Usuario: Admin
+
+Contraseña: Admin123*
 #### Pagina de Incio
 En esta pagina el usuario administrador tendra que loguearse para poder accder a la opciones de la aplicacion
 
