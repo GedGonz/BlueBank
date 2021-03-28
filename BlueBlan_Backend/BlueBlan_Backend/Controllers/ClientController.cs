@@ -20,6 +20,7 @@ namespace BlueBlan_API.Controllers
         {
             this._clientAplicationService = _clientAplicationService;
         }
+
         // GET: api/<AccountController>
         [HttpGet]
         public async Task<IActionResult> Get()
