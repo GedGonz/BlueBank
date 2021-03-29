@@ -26,6 +26,7 @@ Al contar con mayor tiempo se podria:
 + Atacar las busquedas de los clientes.
 + Darle un diseño mas formal deacuerdo a las metricas de la organizacion.
 + Mostrar mas informacion del cliente al consultar la cuenta.
++ A nivel de programacion agregarle mas pruebas unitaras al fuente y agregar en donde no las hay, para dar mejor soporte del codigo fuente.
 
 
 ### Aplicacion Web
