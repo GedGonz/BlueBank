@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     
     this._authService.setToken(resp.token);
     this.loading = false;
-      this._route.navigateByUrl("/accounts");
+      this._route.navigateByUrl("/account/menu");
     }, (err: HttpErrorResponse) => {
       this.loading = false;
       console.log(err);
