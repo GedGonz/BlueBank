@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false.valueOf,
-  API_URL: 'https://localhost:44304/api'
+  //API_URL: 'https://localhost:44304/api'
+  API_URL: 'https://bluebankapi.azurewebsites.net/api'
 };
 
 /*
