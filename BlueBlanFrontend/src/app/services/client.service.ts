@@ -24,4 +24,9 @@ export class ClientService {
     const url =  `${this.uri}/client`;
     return this.http.get<client[]>(url);
   }
+
+  findClient(_id:string): Observable<client> {
+    const url =  `${this.uri}/client/${_id}`;
+    return this.http.get<client>(url);
+  }
 }

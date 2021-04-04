@@ -13,6 +13,7 @@ import { response } from 'src/app/model/response';
 })
 export class NewClientComponent implements OnInit {
 
+  loading:boolean;
   clientForm: FormGroup;
   model: client = new client();
 
@@ -27,19 +28,22 @@ export class NewClientComponent implements OnInit {
 
   newClient()
   {
+    this.loading=true;
     this.model.name=this.clientForm.value.name;
     this.model.lastname=this.clientForm.value.lastname;
 
     this.service.newClientService(this.model).subscribe((res: response)=>{
       this.model= new client();
-
+      this.loading=false;
       this.toastr.success(res.message, 'Success!');
     }, (err: HttpErrorResponse) => {
-
+      this.loading=false;
       if(err.status==400)
         this.toastr.warning('error sending data!', 'Error!');
       if(err.status==500)
         this.toastr.error('Internal Error!', 'Error!');
+      if(err.status==0 && err.ok===false)
+        this.toastr.warning('Impossible to connect to the server!', 'Waringi!');
     });
     this.clientForm.setValue({name: '', lastname: ''});
   }

@@ -18,13 +18,13 @@
 }
 
 .total-comisign {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     color: rgb(17, 99, 167) !important;
 }
 
 .total-withdraw {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     color: rgb(239 91 91) !important;
 }
@@ -32,4 +32,12 @@
 h4 {
     color: white;
     font-size: 30px;
+}
+
+.dataclient {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(136 136 136) !important;
+    text-align: left;
+    margin-bottom: 0px !important;
 }

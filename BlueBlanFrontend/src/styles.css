@@ -14,7 +14,7 @@ body {
 }
 
 .card {
-    padding: 70px;
+    padding: 50px 70px 70px 70px;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
     border-radius: 20px;
 }
@@ -48,5 +48,8 @@ footer {
 @media (max-width: 765px) {
     footer {
         position: relative !important;
+    }
+    .padding-top {
+        padding-top: 50px !important;
     }
 }

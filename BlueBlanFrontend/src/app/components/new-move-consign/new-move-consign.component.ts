@@ -14,6 +14,7 @@ import { response } from 'src/app/model/response';
 })
 export class NewMoveConsignComponent implements OnInit {
 
+  loading:boolean;
   moveconsignForm: FormGroup;
   model: accountmove = new accountmove();
   _typemove:typemove = new  typemove();
@@ -27,22 +28,24 @@ export class NewMoveConsignComponent implements OnInit {
     
 newMoveConsign()
 {
-
+  this.loading=true;
   this.model.number=this.moveconsignForm.value.number;
   this.model.value=this.moveconsignForm.value.value;
   this.model.typemove=this._typemove.consign
 
   this.serviceAccount.newMoveService(this.model).subscribe((res:response)=>{
-
+    this.loading=false;
     this.model=new accountmove();
 
     this.toastr.success(res.message, 'Success!');
   }, (err: HttpErrorResponse) => {
-   if(err.status==400)
+    this.loading=false;
+    if(err.status==400)
         this.toastr.warning(err.error, 'Error!');
     if(err.status==500)
-      this.toastr.info('Internal Error!', 'Error!');
-
+      this.toastr.error('Internal Error!', 'Error!');
+    if(err.status==0 && err.ok===false)
+      this.toastr.warning('Impossible to connect to the server!', 'Waringi!');
   });
   this.moveconsignForm.setValue({number: '', value: ''});
 }

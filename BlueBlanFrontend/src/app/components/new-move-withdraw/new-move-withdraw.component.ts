@@ -14,7 +14,7 @@ import { response } from 'src/app/model/response';
 })
 export class NewMoveWithdrawComponent implements OnInit {
 
-
+  loading:boolean;
   movewithdrawForm: FormGroup;
   model: accountmove = new accountmove();
   _typemove:typemove = new  typemove();
@@ -28,21 +28,24 @@ export class NewMoveWithdrawComponent implements OnInit {
     
 newMoveConsign()
 {
-
+  this.loading=true;
   this.model.number=this.movewithdrawForm.value.number;
   this.model.value=this.movewithdrawForm.value.value;
   this.model.typemove=this._typemove.withdraw
 
   this.serviceAccount.newMoveService(this.model).subscribe((res: response)=>{
-    
+    this.loading=false;
     this.model=new accountmove();
     
     this.toastr.success(res.message, 'Success!');
   }, (err: HttpErrorResponse) => {
+    this.loading=false;
     if(err.status==400)
       this.toastr.warning(err.error, 'Error!');
     if(err.status==505)
-      this.toastr.info('Interal Error!', 'Error!');
+      this.toastr.error('Interal Error!', 'Error!');
+    if(err.status==0 && err.ok===false)
+      this.toastr.warning('Impossible to connect to the server!', 'Waringi!');
   });
 
 }

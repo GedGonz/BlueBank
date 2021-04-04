@@ -19,6 +19,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -42,12 +43,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgxLoadingModule.forRoot({
+      primaryColour: 'rgb(88 160 255)', 
+      secondaryColour: 'rgb(88 160 255)', 
+      tertiaryColour: 'rgb(88 160 255)'
+    }),
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-full-width',
       preventDuplicates: true,
       
-    })
+    }),
   ],
   providers: [
     {
