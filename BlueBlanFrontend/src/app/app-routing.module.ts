@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
-import { LoginComponent } from "./components/login/login.component";
 import { AuthenticateGuard } from './guards/authenticate.guard';
 
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
-  {path:'login',component:LoginComponent},
+
+  {
+    path:'',
+    loadChildren: ()=> import('./components/security/security.module').then(m=>m.SecurityModule)
+  },
+  {
+    path:'security',
+    loadChildren: ()=> import('./components/security/security.module').then(m=>m.SecurityModule)
+  },
   {
     path:'account',
     canActivate:[AuthenticateGuard],
