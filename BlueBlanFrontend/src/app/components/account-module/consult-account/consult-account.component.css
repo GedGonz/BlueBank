@@ -1,0 +1,43 @@
+.displayAccount {
+    padding: 20px 50px 20px 50px;
+    background: rgb(241, 240, 240);
+    font-size: 45px;
+    font-weight: bold;
+    width: 100%;
+    color: rgb(141 124 124) !important;
+}
+
+.inputFind {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.text-total {
+    color: rgb(66, 66, 66);
+}
+
+.total-comisign {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(17, 99, 167) !important;
+}
+
+.total-withdraw {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(239 91 91) !important;
+}
+
+h4 {
+    color: white;
+    font-size: 30px;
+}
+
+.dataclient {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(136 136 136) !important;
+    text-align: left;
+    margin-bottom: 0px !important;
+}

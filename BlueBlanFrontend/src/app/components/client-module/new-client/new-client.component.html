@@ -1,0 +1,46 @@
+<br/>
+<div class="row">
+    <div class="col-md-12">
+        <h4 class="text-center style-font">Register New Client</h4>
+    </div>
+</div>
+<br>
+<div class="card">
+    <div class="row">
+        <div class="col-md-12 ">
+            <form [formGroup]="clientForm">
+                <div class="form-group">
+                    <label for="NameText">Name</label>
+                    <input type="text" class="form-control inputFind" id="Name" formControlName="name">
+                    <label for="NameText">LastName</label>
+                    <input type="text" class="form-control inputFind" id="LastName" formControlName="lastname">
+                </div>
+                <div *ngIf="clientForm.controls['name'].invalid && (clientForm.controls['name'].dirty || clientForm.controls['name'].touched)" class="alert alert-danger">
+                    <div *ngIf="clientForm.controls['name'].errors.required">
+                        Name is required.
+                    </div>
+                </div>
+                <div *ngIf="clientForm.controls['lastname'].invalid && (clientForm.controls['lastname'].dirty || clientForm.controls['lastname'].touched)" class="alert alert-danger">
+                    <div *ngIf="clientForm.controls['lastname'].errors.required">
+                        LastName is required.
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-success btn-lg  btn-block" (click)="newClient()" [disabled]="clientForm.pristine || clientForm.invalid">
+                            <fa name="send" style="color: rgb(251, 251, 251); font-size: 20px;"></fa>
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-danger btn-lg  btn-block" [routerLink]="['/account/menu']">
+                            <fa name="undo" style="color: rgb(251, 251, 251); font-size: 20px;"></fa>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

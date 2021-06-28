@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <div class="padding-top">
+            <form [formGroup]="loginForm">
+
+
+                <div class="titulologin text-center">
+                    <h3 class="text-center title">Blue <span class="spaner">Bank</span></h3>
+                    <div class="borde"></div><br>
+                    <br></div>
+                <div class="form-group">
+                    <input name="user" type="text" placeholder="Username" class="form-control" formControlName="user"><br>
+                    <input name="pasword" type="password" placeholder="Password" class="form-control" formControlName="password">
+                </div>
+                <div *ngIf="loginForm.controls['user'].invalid && (loginForm.controls['user'].dirty || loginForm.controls['user'].touched)" class="alert alert-danger">
+                    <div *ngIf="loginForm.controls['user'].errors.required">
+                        User is required.
+                    </div>
+                </div>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert alert-danger">
+                    <div *ngIf="loginForm.controls['password'].errors.required">
+                        Password is required.
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <button [disabled]="loginForm.pristine || loginForm.invalid" class="btn btn-primary btn-lg  btn-block btn-group-justified" (click)="login()">
+                         Login 
+                    </button>
+                    <br>
+                </div>
+                <br>
+                <p class="slogan">simple, safe <span>and easy</span> </p>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-7 text-center">
+
+        <img src="../../../assets//image/baner.png" alt="baner" style="width: 80%;">
+    </div>
+
+
+
+
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+</div>

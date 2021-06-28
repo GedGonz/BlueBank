@@ -1,0 +1,59 @@
+<br/>
+<div class="row">
+    <div class="col-md-12">
+        <h4 class="text-center style-font">Consign to Account</h4>
+    </div>
+</div>
+<br>
+<div class="card">
+
+    <br>
+    <div class="row">
+
+        <div class="col-md-12 ">
+            <form [formGroup]="moveconsignForm">
+                <div class="form-group">
+
+                    <label for="">Number account</label>
+                    <input type="text" class="form-control text-center inputFind" placeholder="0000001" formControlName="number">
+                    <label for="">Amount to consign</label>
+                    <input type="text" class="form-control text-center inputFind" placeholder="$ 0.00" formControlName="value">
+
+                    <div *ngIf="moveconsignForm.controls['number'].invalid && (moveconsignForm.controls['number'].dirty || moveconsignForm.controls['number'].touched)" class="alert alert-danger">
+                        <div *ngIf="moveconsignForm.controls['number'].errors.required">
+                            Account number is required.
+                        </div>
+                    </div>
+                    <div *ngIf="moveconsignForm.controls['value'].invalid && (moveconsignForm.controls['value'].dirty || moveconsignForm.controls['value'].touched)" class="alert alert-danger">
+                        <div *ngIf="moveconsignForm.controls['value'].errors.required">
+                            Amount is required.
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-success btn-lg  btn-block" (click)="newMoveConsign()" [disabled]="moveconsignForm.pristine || moveconsignForm.invalid">
+                                <fa name="send" style="color: rgb(251, 251, 251); font-size: 20px;"></fa>
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-danger btn-lg  btn-block" [routerLink]="['/account/menu']">
+                                <fa name="undo" style="color: rgb(251, 251, 251); font-size: 20px;"></fa>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    -
+                </div>
+            </form>
+            <br>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-12">
+        <h4 class="text-center style-font">Consult Account</h4>
+    </div>
+</div>
+<br>
+<div class="card">
+
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="dataclient">Clint: <span>{{ modeclient.name | upercase:true}} {{modeclient.lastname | upercase:false}}</span></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 ">
+
+            <div class="row">
+                <div class="col-md-12 text-center" *ngIf="model.valuecurrent">
+                    <label class="text-center displayAccount">U$ <span>{{model.valuecurrent}}</span></label>
+                </div>
+                <div class="col-md-12 text-center" [hidden]="model.valuecurrent">
+                    <label class="text-center displayAccount">U$ 0.00</label>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <span class="text-total">Total Comisign</span>
+                            <label class="total-comisign" *ngIf="TotalComisgn"><fa name="arrow-up" style="font-size: 30px;"></fa> U$ {{TotalComisgn}}</label>
+                            <label class="total-comisign" [hidden]="TotalComisgn"><fa name="arrow-up" style="font-size: 30px;"></fa> U$ 0.00</label>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <span class="text-total">Total WithDraw</span>
+                            <label class="total-withdraw" *ngIf="TotalWithDraw"> <fa name="arrow-down"  style="font-size: 30px;"></fa> U$ {{TotalWithDraw}}</label>
+                            <label class="total-withdraw" [hidden]="TotalWithDraw"> <fa name="arrow-down"  style="font-size: 30px;"></fa>  U$ 0.00</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <app-move-account [accounts]="model"></app-move-account>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 ">
+            <div class="form-group">
+
+                <input type="text" class="form-control text-center inputFind" [(ngModel)]="model.number" placeholder="10005091045">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-primary btn-lg  btn-block" (click)="getFindAccount()">
+                            <fa name="search" style="color: rgb(251, 251, 251); font-size: 18px;"></fa>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-danger btn-lg  btn-block" [routerLink]="['/account/menu']">
+                            <fa name="undo" style="color: rgb(251, 251, 251); font-size: 18px;"></fa>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img class="text-center" src="https://upload.wikimedia.org/wikipedia/commons/6/65/Credit_or_Debit_Card_Flat_Icon_Vector.svg" alt="" style="width: 60%;">
+                    </div>
+                </div>
+
+                -
+            </div>
+
+            <br>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

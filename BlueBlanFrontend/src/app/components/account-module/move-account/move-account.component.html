@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ammount</th>
+            <th scope="col">Type</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let accountMove of accounts.accountmoves; index as i;" [class]="accountMove.typemove==0?'amount-withdraw': 'amount-comisign'">
+            <th scope="row">{{(i+1)}}</th>
+            <td>{{accountMove.value}}
+                <fa [name]="accountMove.typemove==0?'arrow-down': 'arrow-up'"></fa>
+            </td>
+            <td>
+                {{accountMove.typemove}}
+            </td>
+            <td>{{accountMove.datemove}}</td>
+        </tr>
+
+    </tbody>
+</table>
